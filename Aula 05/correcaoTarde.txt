@@ -1,0 +1,116 @@
+1)
+console.log("Oi,meu nome é Eduardo")
+
+2)
+console.log("cadastro de funcionario:\n1cadastrar funcionario\n2listar funcionario\n3editar funcionarios\n4deletar funcionarios\n5sair");
+
+3)
+let nome
+let admin
+nome = "João"
+admin = nome
+console.log(nome)
+
+4)
+let meuNome = "Kayo"   
+let idade = 17
+let peso = 68 
+let altura = 1.80
+let telefone = "988010812"
+console.log(`nome: ${meuNome}`)
+console.log(`idade: ${idade}`)
+console.log(`peso: ${peso}`)
+console.log(`altura: ${altura}`)
+console.log(`telefone: ${telefone}`)
+
+5)
+let titulo = "O Pequeno Príncipe"
+let edição = 237
+let autor = "Marcos Barbosa"
+let data_de_Publicação = 1952
+console.log(` Título : ${titulo}\n Edição : ${edição}\n Autor : ${autor}\n Data de Publicação : ${data_de_Publicação}`)
+
+6)
+let dataNascimento, quantidadeFilhos, usuarioLogado
+
+7)
+let nome = "João"
+console.log(`Olá ${1}`) // Olá 1
+console.log(`Olá ${"nome"}`) // Olá nome
+alert(`Olá ${nome}`) // Olá João
+
+8)
+let x = 10
+let y = 8
+let area = (x * y) / 2 + 3 ** 4
+console.log(area)
+// a saida dos dados é a representação numérica referente a área, ou seja, 121
+
+9) 
+let a = 2
+let x = 1 + (a *= 2)
+console.log(a, x)
+
+// 4 5
+
+10)
+A) "" + 1 + 0 // 10
+B) "" - 1 + 0 // -1
+C) 6 / "3" // 2
+D) "2" * "3" // 6
+E) 4 + 5 + "px" // 9px
+F) "$" + 4 + 5 // $45
+G) "4" - 2 // 2
+
+11)
+let altura = Number(prompt("Digite o valor da Altura do retângulo"))
+let largura = Number(prompt("Digite o valor da largura do retângulo"))
+let area = largura * altura
+let perimetro = (largura * 2) + (altura * 2)
+console.log(`A área do retângulo é: ${area}`)
+console.log(`O perímetro do retângulo é: ${perimetro}`)
+
+12)
+let n1 = Number(prompt("Insira um número"))
+let n2 = Number(prompt("Agora insira outro"))
+let soma = n1 + n2
+console.log(soma)
+
+13)
+let notaA = Number(prompt("Digite a nota A"))
+let notaB = Number(prompt("Digite a nota B"))                
+let media = (notaA + notaB) / 2          
+console.log(`A média entre ${notaA} e ${notaB} é: ${media.toFixed(2)}`)
+
+14)
+let numero1 = Number(prompt("Digite um numero"))
+let numero2 = Number(prompt("Digite um numero"))
+let numero3 = Number(prompt("Digite um numero"))
+let resultado01 = numero1 ** 2  
+let resultado02 = numero2 ** 2
+let resultado03 = numero3 ** 2
+console.log(`O numero ${numero1} ao quadrado é: ${resultado01}\n O numero ${numero2} ao quadrado é: ${resultado02}\n O numero ${numero3} ao quadrado é: ${resultado03}.`)
+
+15)
+let a = 10 // a = 10
+let b = 20 // a = 10, b = 20
+console.log(a, b)
+
+let varAuxiliar = a // a = 10, b = 20, varAuxiliar = 10
+a = b // a = 20, b = 20, varAuxiliar = 10
+b = varAuxiliar // a = 20, b = 10, varAuxiliar = 10
+console.log(a, b)
+
+16)
+let meses = Number(prompt("Insira uma quantidade de meses"))
+let dias = 30 * meses
+console.log(dias)
+
+
+
+
+
+
+
+
+
