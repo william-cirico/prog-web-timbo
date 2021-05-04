@@ -1,0 +1,99 @@
+1) Qual é a saída dos seguintes comandos
+console.log(!10) // ?
+console.log(!!"String") // ?
+console.log(!!2.3) // ?
+console.log(Boolean(null)) // ?
+
+2) Qual é a saída das seguintes instruções
+console.log(10 > 2) // ?
+console.log(5 >= "5") // ?
+console.log(5 >== "5") // ?
+console.log("apple" > "pineapple") // ?
+console.log("2" > "12") // ?
+console.log(undefined == null) // ?
+console.log(undefined === null) // ?
+console.log(null == "\n0\n") // ?
+console.log(null === +"\n0\n") // ?
+
+
+3) Escreva um script que receba uma valor A, verifique se o valor A é maior que 10 e
+mostre na tela "O valor A é maior que 10". 
+Entrada:            Saída:
+11                  O valor A é maior que 10
+                    Programa finalizado...
+ 
+9                   Programa finalizado...                   
+
+4) Escreva um script que receba um número, se esse número for par mostre na tela
+a metade do número digitado. No final do script mostrar na tela "Programa finalizado..."
+Entrada:         Saída:
+10               5
+                 Programa finalizado...
+
+9                Programa finalizado...
+
+5) Escreva um script que receba um número, se esse número for par mostre na tela
+"O número é par" senão mostre "O número é ímpar".
+Entrada:         Saída:
+10               O número é par
+
+9                O número é ímpar
+
+6) Escreva um script que receba um número, se esse número estiver entre 20 e 90 
+mostre na tela "O número está na faixa entre 20 e 90" senão mostre "O número
+está fora da faixa".
+Entrada:        Saída:
+21              O número está na faixa entre 20 e 90
+
+20              O número está fora da faixa
+
+90              O número está fora da faixa
+
+7) Considerando o valor de A = 10 e B = 20, responda a saída das seguintes expressões:        
+Boolean(A > 10 && B <= 20) // ?
+Boolean(A > 10 || B <= 20) // ?
+Boolean((A === 10 || B > 20) && B === 20) // ?
+console.log(null || 2 || undefined) // ?
+Boolean(0 && 1) // ?
+
+8) Escreva um script que receba três valores A, B, C. Faça as comparações necessárias para exibir
+na tela o maior valor entre os três.
+Entrada:         Saída:
+10, 12, 2        O maior número é 12
+
+12, 2, 10        O maior número é 12
+
+2, 10, 12        O maior número é 12
+
+9) Reescreva o script abaixo utilizando o operador ternário:
+let resultado;
+
+if (a + b < 4) {
+    resultado = "Abaixo"
+} else {
+    resultado = "Acima"
+}
+
+10) Escreva	um programa que	leia as	medidas	dos	lados de um	triângulo e	
+escreva	se ele é Equilátero, Isósceles ou Escaleno.	Sendo que:	
+− Triângulo	Equilátero:	possui os 3 lados iguais.	
+− Triângulo	Isósceles: possui 2	lados iguais.	
+− Triângulo	Escaleno: possui 3 lados diferentes.
+
+11) Leia um numero fornecido pelo usuário. Se esse número for positivo, calcule a raiz
+quadrada do numero. Se o número for negativo, mostre uma mensagem dizendo que o
+numero é inválido.
+
+12) Leia um numero real. Se o numero for positivo imprima a raiz quadrada. Do contrário,
+imprima o numero ao quadrado.
+
+13) Leia o salario de um trabalhador e o valor da prestação de um empréstimo. Se a prestaçao
+for maior que 20% do salário imprima: “empréstimo não concedido”, caso contrario imprima:
+“empréstimo concedido”.
+
+14) Usando o comando switch, escreva um programa que leia um inteiro entre 1 e 7 e
+imprima o dia da semana correspondente a este numero. Isto é, domingo se for 1, segundafeira se for 2, e assim por diante.
+
+15) Usando o comando switch, escreva um programa que leia um inteiro entre 1 e 12 e
+imprima o mês correspondente a este numero. Isto é, Janeiro se for 1, Fevereiro se 2, e
+assim por diante.
