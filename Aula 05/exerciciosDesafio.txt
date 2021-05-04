@@ -12,7 +12,7 @@ Entrada:       Saida:
 o valor a pagar e o valor do desconto.
 Entrada:       Saida:
 10             TOTAL = 9 
-10             DESCONTO = 10
+10             DESCONTO = 1
 
 100            TOTAL = 80
 20             DESCONTO = 20

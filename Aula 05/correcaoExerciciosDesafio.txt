@@ -1,0 +1,30 @@
+17)
+let numero = Number(prompt("Digite um Número"))        
+let antecessor = numero - 1
+let posterior = numero + 1        
+console.log(`Antecessor do Número ${antecessor}\nO número ${numero}\nPosterior ao Número ${posterior}`)
+
+18)
+let raio = Number(prompt("Insira um número"))
+const PI = 3.14159
+let area = 4 / 3 * PI * raio ** 3
+
+console.log(area.toFixed(2))
+
+19)
+alert("Vamos calcular a área de um triangulo")
+let base = Number(prompt("Digite a base"))
+let altura = Number(prompt("Digite a altura"))
+let area = base * altura / 2
+console.log(`Área = ${area.toFixed(2)}`)
+
+
+20)
+let preco = Number(prompt("Qual é o preço do produto"))
+let percentualDesconto = Number(prompt("Qual é o percentual desconto"))
+let desconto = percentualDesconto / 100 * preco
+let total = preco - desconto
+console.log(`Total: ${total} \nDesconto: ${desconto}`)
+
+
+21)
