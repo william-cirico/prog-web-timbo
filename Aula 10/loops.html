@@ -81,7 +81,8 @@
         Por exemplo, o loop abaixo pede para o usuário uma série de números e termina
         quando nenhum número for digitado:
         */
-        let soma = 0
+
+        let soma = 0 // Variável acumuladora
         while (true) {
             let valor = Number(prompt("Digite um número"))
             
@@ -106,9 +107,28 @@
             }
 
             console.log(i)
-        }        
-
+        }
         
+        /*
+        É possível aninhar estruturas de repetição:        
+        */
+
+        let contador = 0
+        for (let i = 0; i < 2; i++) {
+            for (let j = 0; j < 2; j++) {
+                console.log(`Executando pela ${++contador} vez...`)
+            }
+        }
+
+        /*
+        Uso do operador ++ ou --
+        prefixo = ++variavel
+        sufixo = variavel++
+        */
+       
+        let teste = 0
+        console.log(teste++)
+        console.log(++teste)
     </script>
 </body>
 </html>
