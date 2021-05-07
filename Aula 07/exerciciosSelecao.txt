@@ -1,19 +1,18 @@
 1) Qual é a saída dos seguintes comandos
-console.log(!10) // ?
-console.log(!!"String") // ?
-console.log(!!2.3) // ?
-console.log(Boolean(null)) // ?
+console.log(!10) // False
+console.log(!!"String") // True
+console.log(!!2.3) // True
+console.log(Boolean(null)) // False
 
 2) Qual é a saída das seguintes instruções
-console.log(10 > 2) // ?
-console.log(5 >= "5") // ?
-console.log(5 >= "5") // ?
-console.log("apple" > "pineapple")
-console.log("2" > "12")
-console.log(undefined == null)
-console.log(undefined === null)
-console.log(null == "\n0\n")
-console.log(null === +"\n0\n")
+console.log(10 > 2) // True
+console.log(5 >= "5") // True
+console.log("apple" > "pineapple") // False
+console.log("2" > "12") // True
+console.log(undefined == null) // True
+console.log(undefined === null) // False
+console.log(null == "\n0\n") // False
+console.log(null === +"\n0\n") // False
 
 
 3) Escreva um script que receba uma valor A, verifique se o valor A é maior que 10 e
@@ -50,11 +49,11 @@ Entrada:        Saída:
 90              O número está fora da faixa
 
 7) Considerando o valor de A = 10 e B = 20, responda a saída das seguintes expressões:        
-Boolean(A > 10 && B <= 20) // ?
-Boolean(A > 10 || B <= 20) // ?
-Boolean((A === 10 || B > 20) && B === 20) // ?
-console.log(null || 2 || undefined) // ?
-Boolean(0 && 1) // ?
+Boolean(A > 10 && B <= 20) // false
+Boolean(A > 10 || B <= 20) // true
+Boolean((A === 10 || B > 20) && B === 20) // true
+console.log(null || 2 || undefined) // 2
+Boolean(0 && 1) // false
 
 8) Escreva um script que receba três valores A, B, C. Faça as comparações necessárias para exibir
 na tela o maior valor entre os três.
