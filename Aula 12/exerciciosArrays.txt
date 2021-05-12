@@ -57,7 +57,7 @@ encontram o maior e o menor valor.
 lançamentos em um vetor e mostre a quantidade de vezes que cada número (1..6) apareceu.
 
 
-12) Faça um programa para ler a nota da prova de alunos e armazene num vetor, calcule e
+13) Faça um programa para ler a nota da prova de alunos e armazene num vetor, calcule e
 mostre a média geral da turma e também a maior nota da turma. O programa deve parar de armazenar
 as notas quando uma nota negativa for digitada.
 Entrada:             Saída:
@@ -69,5 +69,64 @@ Entrada:             Saída:
 -1
 
 
+14) Escreva um programa que leia dois vetores com 5 posições e mostre se eles são iguais ou diferentes
+Entrada:             Saída:
+1                    Os vetores são iguais
+2
+3
+4
+5
+1
+2
+3
+4
+5
+
+-------------------------------------------
+Entrada:             Saída:
+1                    Os vetores são diferentes
+2
+3
+4
+5
+1
+2
+2
+3
+3
 
 
+15) Escreva um script que leia 2 vetores com 5 posições. Verifique a intersecção
+dos vetores (valores que aparecem em ambos) e armazene esses valores em um terceiro vetor.
+Ao final, mostra na tela os 3 vetores.
+Entrada:              Saída:
+a                     Vetor 1: ["a", "b", "c", "d", "e"]
+b                     Vetor 2: ["f", "g", "h", "i", "a"]
+c                     Intersecção: ["a"]
+d
+e
+f
+g
+h
+i
+a
+
+
+16) Escreva um script que leia 2 números e crie um vetor que armazene os valores presentes 
+no intervalo entre os 2 números com o passo 2. Após isso, mostre na tela o vetor.
+Entrada:              Saída:
+1                     1
+10                    3
+                      5
+                      7
+                      9
+-----------------------------
+2                     2
+10                    4
+                      6
+                      8
+                      10
+
+
+17) Crie um script que armazene 10 números aleatórios dentro de um vetor (utilize a função Math.random()),
+ordene o vetor de forma crescente. (**NÃO UTILIZAR A FUNÇÃO SORT**)
