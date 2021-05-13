@@ -130,3 +130,18 @@ Entrada:              Saída:
 
 17) Crie um script que armazene 10 números aleatórios dentro de um vetor (utilize a função Math.random()),
 ordene o vetor de forma crescente. (**NÃO UTILIZAR A FUNÇÃO SORT**)
+
+
+18) Crie um script que preencha um vetor com 10 números aleatórios entre 1..10 (utilizar a função Math.random()),
+após isso mostre:
+a) Os números presentes no vetor
+b) A soma dos números pares
+c) A multiplicação dos números ímpares
+
+19) Faça um script que:
+a) Crie uma variável com o texto: "Sem trocar que o espinho é seco.\n Sem trocar que seco é ser sol.\n Sem trocar que algum espinho seco secará."
+b) Mostre na tela a variável
+c) Substitua as palavras "trocar" por "sacar" na String (**NÃO UTILIZAR O MÉTODO REPLACE**)
+d) Mostre na tela a String com os valores trocados
+
+
