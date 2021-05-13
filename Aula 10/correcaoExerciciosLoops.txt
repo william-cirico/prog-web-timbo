@@ -428,3 +428,16 @@ while (contadorNumerosPrimos < 20) {
 }
 
 console.log(primos)
+
+
+// Forma 03
+numerosPrimos:
+for (let i = 2; i < 20; i++) {
+
+    // checando se i é um número primo
+    for (let j = 2; j < i; j++) {
+        if (i % j == 0) continue nextPrime
+    }
+
+    console.log(i)
+}
