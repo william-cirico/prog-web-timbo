@@ -31,7 +31,7 @@ diagonal principal.
 6. Faça um script que leia o nome e as notas de 3 alunos e armazene essas informações em
 uma matriz no seguinte formato:
 João   10   9   8
-Maria  7    7   7   
+Maria  5    5   5 
 Pedro  8    8   8
 
 Após isso calcule a média de cada aluno e adicione a média na linha correspondente ao aluno
