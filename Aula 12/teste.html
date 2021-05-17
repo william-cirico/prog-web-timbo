@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let produtos = [],
+            precos = [],
+            produtosPrecoEspecial = [],
+            inferior50 = 0,
+            acumuladorMaior100 = 0,
+            contadorMaior100 = 0
+
+        for (let i = 0; i < 5; i++) {
+            produtos[i] = prompt(`Digite o nome do ${i + 1} produto`)
+            precos[i] = +prompt(`Digite o preço do ${i + 1} produto`)
+
+            if (precos[i] < 50) {
+                inferior50++
+            } else if (precos[i] <= 100) {
+                produtosPrecoEspecial.push(produtos[i])
+            } else {
+                acumuladorMaior100 += precos[i]
+                contadorMaior100++
+            }
+        }   
+
+        let mediaPrecosMaior100 = acumuladorMaior100 / contadorMaior100
+
+        console.log(`Produtos: ${produtos}\nPreços:${precos}`)
+        console.log(`Quantidade de produtos com preço inferior a R$ 50,00: ${inferior50}`)
+        console.log(`Produtos com preço entre R$ 50,00 e R$ 100,00: ${produtosPrecoEspecial}`)
+        console.log(`Média dos preços dos produtos com preço superior a R$ 100,00: ${mediaPrecosMaior100.toFixed(2)}`)
+    </script>
+</body>
+</html>
