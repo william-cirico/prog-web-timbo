@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        {
+            // 1
+            let primeiroUltimoElemento = (vetor) => [vetor[0], vetor[vetor.length - 1]]
+
+            function cadastraNumeros() {
+                let numeros = []
+                for (let i = 0; i < 50; i++) {
+                    numeros[i] = Math.floor(Math.random() * 1000) + 1
+                }
+
+                return numeros
+            }   
+
+            let numeros = cadastraNumeros()
+            console.log(numeros)
+            console.log(primeiroUltimoElemento(numeros))
+        }
+
+        
+        {
+            // 2
+            function mostraSimbolo(numero) {
+                let resultado = ""
+                for (let i = 0; i < numero; i++) {
+                    resultado += "#"
+                }
+
+                return resultado
+            }
+
+            let numero = +prompt("Digite um número")
+            console.log(mostraSimbolo(numero))
+        }
+
+       
+        {
+            // 3
+            function repetirElemento(elemento, quantidadeVezes) {
+                let vetor = []
+                for (let i = 0; i < quantidadeVezes; i++) {
+                    vetor[i] = elemento
+                }
+
+                return vetor
+            }
+        
+            let elemento = prompt("Digite alguma coisa")
+            let quantidadeVezes = +prompt("Digite a quantidade de vezes que o elemento irá repetir")
+
+            console.log(`[${repetirElemento(elemento, quantidadeVezes)}]`)
+        }
+
+               
+        {
+            // 4 
+            function calculaIdade(anoNascimento) {
+                const anoAtual = 2021
+
+                return anoAtual - anoNascimento
+            }
+
+            let anoNascimento = +prompt("Digite o ano em que você nasceu")        
+
+            console.log(calculaIdade(anoNascimento))
+        }
+
+        
+        {
+            // 5
+            function cadastraVetor() {
+                let vetor = []
+
+                for (let i = 0; i < 5; i++) {
+                    vetor[i] = +prompt(`Digite o ${i + 1} valor do vetor`)
+                }
+
+                return vetor
+            }
+
+            function modificaVetor(vetor) {
+                vetor[1] = 10
+                vetor[2] = 30
+
+                return vetor
+            }
+
+            let vetor = cadastraVetor()
+            let vetorModificado = modificaVetor(vetor.slice())
+
+            console.log(vetor)
+            console.log(vetorModificado)
+        }
+
+        {
+            // 6
+            function verificaParesVetor(vetor) {
+                let vetorPares = []
+
+                for (let i = 0; i < vetor.length; i++) {
+                    if (vetor[i] % 2 === 0 && i % 2 === 0) vetorPares.push(vetor[i])
+                }
+
+                return vetorPares
+            }
+
+            let vetor = [0, 1, 2, 5, 7]
+            console.log(vetor)
+            console.log(verificaParesVetor(vetor))
+        }
+
+        {
+            // 7
+            function verificaNumero(numero) {
+                let numeroSorteado = Math.floor(Math.random() * 10) + 1
+
+                return numeroSorteado === numero ? 
+                    `Parabéns! O número sorteado foi o ${numeroSorteado}`
+                :
+                    `Que pena! O número sorteado foi o ${numeroSorteado}`
+            }
+
+            let numero = +prompt("Digite um número")
+            console.log(verificaNumero(numero))
+        }
+
+        {
+            // 8
+            let ehBissexto = ano => (ano % 4 === 0 && ano % 100 != 0) || ano % 400 === 0
+            
+            let ano = +prompt("Digite um ano")
+
+            if (ehBissexto(ano)) {
+                console.log(`O ano ${ano} é bissexto`)
+            } else {
+                console.log(`O ano ${ano} não é bissexto`)
+            }
+        }
+    </script>
+</body>
+</html>
