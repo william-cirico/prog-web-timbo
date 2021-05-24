@@ -1,4 +1,4 @@
-Em um grupo de 3 pessoas:
+Em um grupo de 4 pessoas:
 
 1)
 - Crie um repositório no github com o nome de "treinando-git".
