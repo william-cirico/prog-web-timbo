@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            Utilizamos loops para repetir o mesmo código quantas
+            vezes quisermos.
+        */
+        
+        {
+            alert("Oi")
+            alert("Oi")
+            alert("Oi")
+            alert("Oi")
+            alert("Oi")
+            alert("Oi")
+            alert("Oi")
+            alert("Oi")
+            alert("Oi")
+            alert("Oi")
+        }
+
+        // FOR -> Quando eu sei a quantidade de vezes que vai repetir
+
+        {
+            for (let i = 0; i < 10; i++) {
+                alert("Oi")
+            }
+        }
+
+        // WHILE -> Quando eu não sei a quantidade de vezes que vai repetir
+        {
+            let opcao = true            
+            while (opcao === "") {
+                opcao = prompt("Não digite nada para continuar repetindo")
+                alert("repetiu")
+            }
+        }
+
+        //BREAK -> Para o loop na linha em que ele foi digitado
+
+        {
+            while (true) {
+                opcao = prompt("Não digite nada para continuar repetindo")
+                alert("repetiu")
+                
+                if (opcao === "") {
+                    break
+                }                
+            }
+        }
+
+        // CONTINUE -> Para a iteração do loop
+
+        {            
+            for (let i = 0; i < 10; i++) {
+                if (i === 5) {
+                    continue
+                }
+
+                console.log(`Estou repetindo pela ${i + 1} vez`)
+            }
+        }
+
+        //-----------------------------------------------------------------------------//
+        /*
+            1) Faça um programa que peça ao usuario para digitar 5 valores. Ao final, mostre a soma desses
+            valores e média desses valores (arredondado para duas casas decimais).
+
+            2) Faça um script que receba valores inteiros e mostre na tela quantos desses valores recebidos estão no intervalo
+            [10, 20] e quantos não estão. O programa irá parar de pedir números quando o usuário digitar um número negativo.
+        */
+    </script>
+</body>
+</html>

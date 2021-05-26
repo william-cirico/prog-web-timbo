@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // IF serve para validar uma condição
+
+        /*
+        Operadores de condição
+
+        10 > 10  // ?
+        5 < 10  // ?
+        10 == "10"  // ?
+        10 === "10"  // ?
+        20 <= 10  // ?
+        20 >= 20  // ?
+        20 != 30  // ?
+        */
+        {
+            let numero = 10
+
+            if (numero === 0) {
+                console.log("O número é nulo")
+            } else if (numero % 2 === 0) {
+                console.log("O número é par")
+            } else {
+                console.log("O número é ímpar")
+            }
+        }     
+
+        // Operadores Lógicos
+        
+        
+        /*
+            &&, AND ou E
+            
+            Se eu quiser saber se um número é positivo //([**E**])// par:
+
+            TABELA VERDADE DO E:            
+            +---------+---------+------------+
+            |    A    |    B    |   A && B   |
+            +---------+---------+------------+
+            |    V    |    V    |      V     |
+            |    V    |    F    |      F     |
+            |    F    |    V    |      F     |
+            |    F    |    F    |      F     |
+            +---------+---------+------------+
+
+            ***Só vai ser verdadeiro quando as duas condições forem verdadeiras***
+        */
+        {
+            let numero = 10
+
+            if (numero > 0) {
+                if (numero % 2 === 0) {
+                    console.log("O número é par")
+                }
+            }
+        }
+
+        {
+            let numero = 10
+
+            if (numero > 0 && numero % 2 === 0) {
+                console.log("O número é par")
+            }
+        }
+
+        /*
+            ||, OR ou OU
+
+            TABELA VERDADE DO OU:
+            +---------+---------+------------+
+            |    A    |    B    |   A || B   |
+            +---------+---------+------------+
+            |    V    |    V    |      V     |
+            |    V    |    F    |      V     |
+            |    F    |    V    |      V     |
+            |    F    |    F    |      F     |
+            +---------+---------+------------+
+
+            ***Só vai ser falso quando as duas condições forem falsas***
+        */
+        {
+            let limite_minimo = 10, limite_maximo = 90
+
+            let temperatura = 20
+            if (temperatura < limite_minimo) {
+                if (temperatura > limite_maximo) {
+                    console.log("Deu ruim!")
+                }
+            }
+        }
+
+        {
+            let limite_minimo = 10, limite_maximo = 90
+
+            let temperatura = 20
+            if (temperatura < limite_minimo || temperatura > limite_maximo) {
+                console.log("Deu ruim!")
+            }
+        }
+
+        /*
+            !, NOT ou NEGAÇÃO
+
+            TABELA VERDADE DO !
+            +---------+--------+
+            |    A    |   !A   |
+            +---------+--------+
+            |    V    |    F   |
+            |    F    |    V   |    
+            +------------------+             
+        */
+
+        {
+            let valor = +prompt("Digite um número")
+
+            console.log(valor)
+
+            console.log(Boolean(valor))
+            console.log(!!valor)
+
+            if (!valor) {
+                console.log("Você não digitou nada")
+            }
+        }
+
+        //------------------------------------------------------------------------------------//
+        /*
+            1) Escreva um script que receba um número, se esse número for par mostre na tela
+               "O número é par" senão mostre "O número é ímpar".
+               Entrada:         Saída:
+               10               O número é par
+
+               9                O número é ímpar
+
+            2) Leia o salario de um trabalhador e o valor da prestação de um empréstimo. Se a prestaçao
+            for maior que 20% do salário imprima: “empréstimo não concedido”, caso contrario imprima:
+            “empréstimo concedido”.
+
+            3) Escreva	um programa que	leia as	medidas	dos	lados de um	triângulo, verifique 
+            se ele é Equilátero, Isósceles ou Escaleno.	
+            Sendo que:	
+                − Triângulo	Equilátero:	possui os 3 lados iguais.	
+                − Triângulo	Isósceles: possui 2	lados iguais.	
+                − Triângulo	Escaleno: possui 3 lados diferentes.
+        */
+    </script>
+</body>
+</html>

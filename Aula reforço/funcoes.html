@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Funções são partes do meu código que eu posso reutilizar quando quiser
+
+        // Criando uma função
+        {
+            function dizOi() {
+                alert("Oi")
+            }
+
+            // Quando eu precisar usar ela eu preciso chamar nomeDaFunção()
+            dizOi()
+        } 
+
+        // Parâmetros são os valores que a minha função usa. Eles ficam dentro dos ().
+        {
+            function soma(numero1, numero2) {
+                let resultado = numero1 + numero2
+                alert(resultado)
+            }
+        } 
+
+        // O retorno da função é o que vai ser armazenado em uma variável para ser utilizado posteriormente
+        {
+            function somaNotas(nota1, nota2, nota3) {
+                return nota1 + nota2 + nota3
+            }
+
+            let soma = somaNotas(10, 9, 8),
+                media = soma / 3
+
+            alert(media.toFixed(2))
+        } 
+    </script>
+</body>
+</html>

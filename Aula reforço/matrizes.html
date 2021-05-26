@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Matrizes são vetores bidimensionais (linhas x colunas)
+        {
+            let matriz = [
+                [1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9]
+            ]
+
+            // Achar um valor em uma matriz
+            let valor = 7, posicao
+
+            forLinha:
+            for (let linha = 0; linha < matriz.length; linha++) {
+                for (let coluna = 0; coluna < matriz[linha].length; coluna++) {
+                    if (matriz[linha][coluna] === valor) {
+                        posicao = [linha, coluna]
+                        break forLinha
+                    }
+                }
+            }
+
+            console.log(posicao || "Não encontrei!")
+        }        
+
+        {
+            // Cadastrar valores em uma matriz que já tem valores
+            let matriz = [[123, "Abraham"]]
+
+            for (let linha = 0; linha < matriz.length; linha++) {
+                for (let coluna = 2; coluna < 5; coluna++) {
+                    matriz[linha][coluna] = +prompt("Digite uma nota")
+                }
+            }
+
+            console.log(matriz)
+        }
+
+
+        /*
+        1) Leia uma matriz 3 x 3. Leia tambem um valor X. O programa devera fazer uma busca
+        desse valor na matriz e, ao final, escrever a localização (linha e coluna) ou uma mensa-
+        gem de “não encontrado”.
+
+        2) Declare uma matriz 5 x 5. Preencha com 1 a diagonal principal e com 0 os demais
+        elementos (Matriz Identtidade). Escreva ao final a matriz obtida.
+        Saída:
+        1 0 0 0 0
+        0 1 0 0 0
+        0 0 1 0 0
+        0 0 0 1 0
+        0 0 0 0 1
+        */
+    </script>
+</body>
+</html>
