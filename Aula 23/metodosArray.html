@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Métodos Array
+        {
+            // find() -> Retorna o valor do primeiro elemento que satisfazer a função de teste, ou undefined
+            let numeros = [1, 2, 3, 4, 5, 6]
+            numeros.find((elemento, indice, vetor) => valor === 5)
+            console.log(resultado)
+        }
+
+        {
+            // findIndex() -> Retorna o índice no array do primeiro elemento que satisfazer a função de teste, ou -1
+            let numeros = [1, 2, 3, 4, 5, 6]
+            let resultado = numeros.findIndex((elemento, indice, vetor) => valor > 4)        
+            console.log(resultado)
+        }
+
+        {
+            // filter() -> Cria uma novo array com todos os elementos que passaram no teste da função
+            let numeros = [1, 2, 3, 4, 5, 6]
+            let resultado = numeros.filter((elemento, indice, vetor) => valor > 3)
+            console.log(resultado)
+        }
+
+        {
+            // forEach() -> Executa uma função para cada elemento do array
+            let nomes = ["João", "Maria", "Pedro", "José", "Marcos"]
+            nomes.forEach((elemento, indice, vetor) => alert(`Bom dia ${elemento}`))
+        }
+
+        {
+            // sort() -> Ordena os elementos do próprio array e retorna um array
+            let numeros = [1, 2, 3, 4]
+            numeros.sort((primeiroElemento, segundoElemento) => segundoElemento - primeiroElemento)
+            console.log(numeros)
+        }
+
+        {
+            // map() -> Invoca a função callback passada como argumento para cada elemento do array e devolve um novo array
+            let numeros = [1, 2, 3, 4, 5]
+            let quadrado = numeros.map((elemento, indice, vetor) => elemento ** 2)
+            console.log(quadrado)
+        }
+
+        {
+            // reduce(funcao, valorInicial) -> Executa uma função reducer para cada elemento do array
+            let numeros = [1, 2, 3, 4, 5]
+            let somaNumeros = numeros.reduce((acumulador, valorAtual, indice, vetor) => acumulador + valorAtual, 5)
+            console.log(somaNumeros)
+        }
+
+        {
+            // some() -> Testa se ao menos um elemento do array passa no teste implementado pela função
+            let numeros = [-1, -2, -4, 1, -6]
+            console.log(numeros.some((elemento, indice, vetor) => elemento > 0))
+        }
+
+        {
+            // every() -> Testa se todos os elementos do array passam no teste implementado pela função
+            let numeros = [-1, -2, -4, 1]
+            console.log(numeros.every((elemento, indice, vetor) => elemento < 0))
+        }
+    </script>
+</body>
+</html>

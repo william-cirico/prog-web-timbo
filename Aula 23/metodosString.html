@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Métodos de String
+
+        {
+            // endsWith() -> Indica se uma string termina com determinados caracteres, retorna true ou false.
+            let nome = "Pedro"
+            console.log(nome.endsWith("ro"))
+        }
+
+        {
+            // startsWith() -> Indica se uma string termina com determinados caracteres, retorna true ou false.
+            let nome = "Pedro"
+            console.log(nome.startsWith("Pe"))
+        }
+
+        {
+            // includes() -> Determina se um conjunto de strings pode ser encontrado dentro de outra string, retorna true ou false.
+            let email = "exemplo@dominio.com"
+            console.log(email.includes("@"))
+        }
+
+        {
+            // padEnd() -> Preenche a string com um determinando caractere até que ela alcance um determinado comprimento.
+            // O preenchimento é aplicado no final da string.
+            let teste = "Teste"
+            console.log(teste.padEnd(20, "."))
+        }
+
+        {
+            // padStart() -> Preenche a string com um determinando caractere até que ela alcance um determinado comprimento.
+            // O preenchimento é aplicado no começo da string.
+            let teste = "Teste"
+            console.log(teste.padStart(20, "."))
+        }
+
+        {
+            // repeat() -> Repete a mesma string pela quantidade de vezes fornecida
+            let saudacao = "Oi"
+            console.log(saudacao.repeat(5))
+        }
+
+        {
+            // replace() -> Substitui os caracteres informados na string
+            let vaiTrocar = "Olá, João"
+            console.log(vaiTrocar.replace("João", "Maria"))
+        }
+
+        {
+            // replaceAll() -> Substitui todas as ocorrências dos caracteres informados na string.
+            let vaiTrocar = "Olá, João João"
+            console.log(vaiTrocar.replaceAll("João", "Maria"))
+        }
+
+        {
+            // slice() -> Extrai uma parte de uma string
+            let nome = "Pedro"
+            console.log(nome.slice(2))
+        }
+
+        {
+            // toUpperCase() -> Retorna a string com os caracteres convertidos para maiúsculo
+            let nome = "Pedro"
+            console.log(nome.toUpperCase())
+        }
+
+        {
+            // toLowerCase() -> Retorna a string com os caracteres convertidos para minúsculo
+            let nome = "PEDRO"
+            console.log(nome.toLowerCase())
+        }
+        
+        {
+            // trim() -> Remove os espaços em branco de uma string no inicio/fim
+            let nome = "  Pedro da Silva   "
+            console.log(nome.trim())
+        }                
+    </script>
+</body>
+</html>
