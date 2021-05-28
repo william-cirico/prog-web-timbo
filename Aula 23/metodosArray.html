@@ -109,6 +109,59 @@
            recebido.
            Exemplo: unicos([1, 2, 2, 3, 4]) -> [1, 2, 3, 4]
         */        
+
+        
+        // 1
+        function embaralhar(vetor) {
+            // Fisher-Yates shuffle
+            for (let i = vetor.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1))
+
+                let aux = vetor[i]
+                vetor[i] = vetor[j]
+                vetor[j] = aux                
+            }
+        }
+
+        function testarEmbaralhar(funcao) {
+            let contador = {
+                "123": 0,
+                "132": 0,
+                "213": 0,
+                "231": 0,
+                "321": 0,
+                "312": 0
+            }
+
+            for (let i = 0; i < 1000000; i++) {
+                let vetor = [1, 2, 3]
+                funcao(vetor)
+                contador[vetor.join("")]++
+            }
+
+            for (let chave in contador) {
+                console.log(`${chave}: ${contador[chave]}`)
+            }
+        }             
+        
+        testarEmbaralhar(embaralhar)
+
+        // 2
+        function unicos(vetor) {
+            let vetorResultado = []
+
+            for (let item of vetor) {
+                if (!vetorResultado.includes(item)) {
+                    vetorResultado.push(item)
+                }
+            }
+
+            return vetorResultado
+        }
+
+        let vetor = [1, 2, 3, 3, 5, 5, 6, 6]
+
+        console.log(unicos(vetor))
     </script>
 </body>
 </html>
