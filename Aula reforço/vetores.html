@@ -9,10 +9,11 @@
     <script>
         {
             // Vetores são variáveis com vários espaços.
+            let cores = ["azul", "verde", "amarelo", "rosa", "vermelho"]
+            console.log(cores[3])
+            
             let vetor = [1, 2, 3]
-
             vetor[2] = 4
-
             alert(vetor)
         }
 
@@ -21,17 +22,19 @@
 
             // Para encontrar um valor em um vetor
             for (let letra of letras) {
+                console.log(letra)
                 if (letra === "d") {
                     console.log("Eu encontrei a letra d")
+                    break
                 }
             }
-    }
+        }
         
         {            
-            let numeros = [1, 2, 3, 4, 5, 6]
+            let numeros = [1, 4, 2, 4, 3, 4]
 
             // Se eu preciso modificar aquele valor no vetor
-            for (let i = 0; i < numeros.length; i++) {
+            for (let i = 0, tamanhoVetor = numeros.length; i < tamanhoVetor; i++) {
                 if (numeros[i] === 4) {
                     numeros[i] = 20
                 }            

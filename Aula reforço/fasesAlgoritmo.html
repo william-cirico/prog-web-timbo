@@ -15,7 +15,7 @@
         // 2) Processamento:
         let soma10 = numero + 10
 
-        // 3) Saída
+        // 3) Saída:
         alert(soma10)
 
 
@@ -36,6 +36,30 @@
                100            TOTAL = 80
                20             DESCONTO = 20
         */
+
+        {
+            // Entrada
+            let meses = +prompt("Digite a quantidade de meses")
+
+            // Processamento
+            let totalDias = meses * 30
+
+            // Saída
+            alert(totalDias)
+        }
+
+        {
+            // Entrada
+            let precoProduto = +prompt("Digite o preço de um produto"),
+                percentualDesconto = +prompt("Digite o percentual de desconto")
+
+            // Processamento
+            let desconto = precoProduto * (percentualDesconto / 100),
+                precoTotal = precoProduto - desconto
+
+            // Saída
+            alert(`Desconto: ${desconto.toFixed(2)}\nPreço total: ${precoTotal.toFixed(2)}`)
+        }
     </script>
 </body>
 </html>

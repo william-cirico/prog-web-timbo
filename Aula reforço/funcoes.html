@@ -16,7 +16,7 @@
                 alert("Oi")
             }
 
-            // Quando eu precisar usar ela eu preciso chamar nomeDaFunção()
+            // Quando eu precisar usar ela eu preciso chamar nomeDaFunção()                        
             dizOi()
         } 
 
@@ -26,6 +26,8 @@
                 let resultado = numero1 + numero2
                 alert(resultado)
             }
+
+            soma(10, 10)
         } 
 
         // O retorno da função é o que vai ser armazenado em uma variável para ser utilizado posteriormente
@@ -39,6 +41,27 @@
 
             alert(media.toFixed(2))
         } 
+
+        function subtracao(numero1, numero2) {
+            console.log(`Numero1: ${numero1}\nNumero2: ${numero2}`)
+            let resultado = numero1 - numero2
+            alert(resultado)
+        }
+
+        let a = 50 
+        let b = 30
+        subtracao(a, b) // ?
+        subtracao(b, a) // ?
+
+        a = -10
+        b = 80
+        subtracao(a, b) // ?
+        subtracao(b, a) // ?
+
+        a = 5
+        b = 100
+        subtracao(a, b) // ?
+        subtracao(b, a) // ?
     </script>
 </body>
 </html>

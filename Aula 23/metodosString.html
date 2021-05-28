@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -10,79 +9,97 @@
     <script>
         // Métodos de String
 
+        // endsWith() -> Indica se a string termina com os caracteres informados
         {
-            // endsWith() -> Indica se uma string termina com determinados caracteres, retorna true ou false.
             let nome = "Pedro"
             console.log(nome.endsWith("ro"))
         }
 
+        // startsWith() -> Indica se a string começa com os caracteres informados
         {
-            // startsWith() -> Indica se uma string termina com determinados caracteres, retorna true ou false.
-            let nome = "Pedro"
-            console.log(nome.startsWith("Pe"))
+            let nome = "João"
+            console.log(nome.startsWith("Jo"))
         }
 
+        // includes() -> Determina se um conjunto de caracteres pode ser encontrado dentro
+        // de outra string
         {
-            // includes() -> Determina se um conjunto de strings pode ser encontrado dentro de outra string, retorna true ou false.
-            let email = "exemplo@dominio.com"
-            console.log(email.includes("@"))
+            let palavras = "lorem ipsum dolor..."
+            console.log(palavras.includes("ipsum"))
         }
 
+        // padEnd() -> Preenche a string original com um determinado caractere até que ela
+        // alcance o comprimento determinado. Preenche no final da string
         {
-            // padEnd() -> Preenche a string com um determinando caractere até que ela alcance um determinado comprimento.
-            // O preenchimento é aplicado no final da string.
-            let teste = "Teste"
-            console.log(teste.padEnd(20, "."))
+            let teste = "Nome"
+            console.log(teste.padEnd(25, "."))
         }
 
+        // padStart() -> Preenche a string original com um determinado caractere até que ela
+        // alcance o comprimento determinado. Preenche no começo da string 
         {
-            // padStart() -> Preenche a string com um determinando caractere até que ela alcance um determinado comprimento.
-            // O preenchimento é aplicado no começo da string.
-            let teste = "Teste"
-            console.log(teste.padStart(20, "."))
+            let teste = "Nome"
+            console.log(teste.padStart(25, "."))
         }
 
+        // repeat() -> Repete a mesma string pelo número de vezes especificado
         {
-            // repeat() -> Repete a mesma string pela quantidade de vezes fornecida
-            let saudacao = "Oi"
-            console.log(saudacao.repeat(5))
+            let cumprimentar = "oi"
+            console.log(cumprimentar.repeat(3))
         }
 
+        // replace() -> Retorna uma string com os caracteres escolhidos substituídos pelos novos
+        // caracteres especificados.
         {
-            // replace() -> Substitui os caracteres informados na string
-            let vaiTrocar = "Olá, João"
-            console.log(vaiTrocar.replace("João", "Maria"))
+            let nomes = "João, Pedro, Pedro"
+            console.log(nomes.replace("Pedro", "Maria"))
         }
 
+        // replaceAll() -> Retorna uma string com os caracteres escolhidos substituídos pelos novos
+        // caracteres especificados. (Substitui todos os caracteres escolhidos da string)
         {
-            // replaceAll() -> Substitui todas as ocorrências dos caracteres informados na string.
-            let vaiTrocar = "Olá, João João"
-            console.log(vaiTrocar.replaceAll("João", "Maria"))
+            let nomes = "João, Pedro, Pedro"
+            console.log(nomes.replaceAll("Pedro", "Maria"))
         }
 
+        // toLowerCase() -> Retorna a string com todos os caracteres em minusculo
         {
-            // slice() -> Extrai uma parte de uma string
-            let nome = "Pedro"
-            console.log(nome.slice(2))
+            let palavras = "LOREM IPSUM DOLOR..."
+            console.log(palavras.toLowerCase())
         }
 
+        // toUpperCase() -> Retorna a string com todos os caracteres em maiusculo
         {
-            // toUpperCase() -> Retorna a string com os caracteres convertidos para maiúsculo
-            let nome = "Pedro"
-            console.log(nome.toUpperCase())
+            let palavras = "lorem ipsum dolor..."
+            console.log(palavras.toUpperCase())
         }
 
+        // trim() -> Remove os espaços do começo e do final da string
         {
-            // toLowerCase() -> Retorna a string com os caracteres convertidos para minúsculo
-            let nome = "PEDRO"
-            console.log(nome.toLowerCase())
-        }
-        
-        {
-            // trim() -> Remove os espaços em branco de uma string no inicio/fim
-            let nome = "  Pedro da Silva   "
-            console.log(nome.trim())
-        }                
+            let teste = "  com espaços  "
+            console.log(teste.trim())
+        }   
+
+
+        // Métodos que utilizam expressões regulares
+        // match()
+        // matchAll()        
+        // search()
+
+
+        // Exercícios
+        /*
+        1) Escreva uma função capitalize(string) que retorna uma string com o primeiro caractere de 
+           cada palavra em maiúsculo.
+
+        2) Escreva uma função checaSpam(string) que retorna um booleano indicando se a string contém 
+        as palavras "jequiti" ou "day trading".
+
+        3) Escreva uma função truncar(string, tamanhoMaximo) que checa o tamanho de um string e se ela
+        excede o tamanhoMaximo substitui o final da string com "..."
+        Exemplo:
+        truncar("teste teste teste teste", 10) -> "teste test..."
+        */
     </script>
 </body>
 </html>
