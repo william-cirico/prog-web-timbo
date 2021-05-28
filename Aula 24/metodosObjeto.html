@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*Objetos geralmente são criados para representar
+    entidades do mundo real como usuários, pedidos, etc.*/
+    {
+      let usuario = {
+        nome: "José",
+        idade: 26
+      }
+    }
+    /* No mundo real usuários podem executar ações
+    como fazer login, adicionar produtos no carrinho, etc.
+    no JS essas ações são representadas através de funções
+    dentro do objeto.
+    */
+    {
+      let usuario = {
+      nome: "José",
+      idade: 26,
+      dizOi() {  // Método
+        alert("Oi!")
+      }
+    }
+
+    usuario.dizOi()
+    }  
+
+    /*
+    THIS
+
+    O this em métodos é utilizado para acessar
+    propriedades daquele objeto.
+    */
+    {
+      let usuario = {
+        nome: "José",
+        idade: 26,
+        dizOi() {
+          console.log(`Oi, meu nome é ${this.nome}`)
+        }
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
