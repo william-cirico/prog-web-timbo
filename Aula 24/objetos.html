@@ -37,7 +37,7 @@
             // Notação ponto
             console.log(aluno.matricula)
 
-            // Notação de chaves
+            // Notação de colchetes
             console.log(aluno["matricula"])            
         }
 
@@ -62,7 +62,7 @@
             // Acessar essa propriedade através da notação ponto não irá funcionar:
             console.log(pessoa."nome completo")
 
-            // É necessário acessar através da notação de chaves
+            // É necessário acessar através da notação de colchetes
             console.log(pessoa["nome completo"])
         }
 
@@ -94,6 +94,7 @@
 
             // Só conseguimos fazer isso através da notação de chaves
             console.log(pessoa[nomePropriedade])
+            console.log(pessoa.nomePropriedade)
         }
 
         {
@@ -167,9 +168,12 @@
                 idade: 23
             }
 
-            for (chave in objeto) {
+            for (let chave in objeto) {
                 console.log(`Chave: ${chave} | Valor: ${objeto[chave]}`)                
             }
+
+            console.log(Object.keys(objeto))
+            console.log(Object.values(objeto))
         }
 
         {
@@ -242,8 +246,7 @@
                 nome: "João",
                 idade: 23
             }
-
-
+            
             let {nome, idade} = pessoa
             console.log(nome, idade)
 
@@ -269,7 +272,11 @@
                     idade: 23
                 }
 
-                function mostraPessoa({nome, idade}) {
+                function mostraPessoa(objeto) {
+                    console.log(objeto.nome || "William", objeto.idade)
+                }
+
+                function mostraPessoa({nome = "William", idade}) {
                     console.log(nome, idade)
                 }
 
@@ -292,9 +299,15 @@
             p2: 50,
             p3: 85,
             p4: "Olá",
-            p5: "Teste"
+            p5: "Teste",
             p6: "string",
             p7: 10 
+        }
+
+        let objeto2 ={
+            p1: 20,
+            p2: 30,
+            p3: "Oi"
         }
 
         Construir uma função que some todas as propriedades númericas do objeto.
@@ -302,6 +315,44 @@
 
         3) Adapte o trabalho de funções para armazenar as informações em um objeto.
         */
+
+        function estaVazio(objeto) {
+            for (let chave in objeto) {
+                return false
+            }
+            return true
+
+            // return !Object.keys(objeto).length
+        }
+
+        objeto = {nome: "William"}
+        estaVazio(objeto)
+
+        function somaPropriedades(objeto) {
+            let soma = 0
+            for (let chave in objeto) {
+                if (typeof objeto[chave] === "number") {
+                    soma += objeto[chave]
+                }
+                // if (isFinite(objeto[chave])) {
+                //     soma += +objeto[chave]
+                // }                
+            }
+            
+            alert(soma)
+        }
+
+        let objeto = {
+            p1: 20,
+            p2: "50",
+            p3: 85,
+            p4: "Olá",
+            p5: "Teste",
+            p6: "string",
+            p7: 10 
+        }
+
+        somaPropriedades(objeto)
     </script>
 </body>
 </html>
