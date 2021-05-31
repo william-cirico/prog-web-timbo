@@ -100,6 +100,27 @@
         Exemplo:
         truncar("teste teste teste teste", 10) -> "teste test..."
         */
+        function capitalize(string) {            
+            let palavras = string.split(" ")
+            for (let i = 0, tamanhoVetor = palavras.length; i < tamanhoVetor; i++) {
+                palavras[i] = palavras[i][0].toUpperCase() +  palavras[i].slice(1)
+            }            
+            return palavras.join(" ")
+        }
+        
+        function checaSpam(string) {
+            let lowerCaseString = string.toLowerCase()
+
+            return lowerCaseString.includes("jequiti") || lowerCaseString.includes("day trading")
+        }
+
+        function truncar(string, tamanhoMaximo) {
+            return tamanhoMaximo < string.length ?
+                string.slice(0, tamanhoMaximo) + "..." 
+            : 
+                string        
+        }
+
     </script>
 </body>
 </html>

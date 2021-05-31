@@ -57,12 +57,31 @@
 
             3)
             let i = 0;
-            while (i != 10) {
+            while (i < 10) {
                 i += 0.2;
+                console.log(i)
             }
 
             Porque esse código irá criar um looping infinito?
         */
+
+        function lerNumero() {
+            while (true) {
+                let numero = prompt("Digite um número")
+
+                if (isFinite(numero)) return
+            }
+        }
+
+        function random(minimo, maximo) {
+            return Math.floor(Math.random() * (maximo - minimo)) + minimo
+        }
+
+        let i = 0;
+        while (i < 10) {
+            i += 0.2;
+            console.log(i)
+        }
     </script>
 </body>
 </html>
