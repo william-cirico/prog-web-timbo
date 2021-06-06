@@ -28,7 +28,7 @@
             de diferentes tipos para obter essas informações.
         -->
         <label for="email">E-mail</label><br>
-        <input type="text" name="email" id="email" placeholder="digite o seu email"><br>
+        <input type="text" name="email" id="email" placeholder="digite o seu email"><br>        
         
         <label for="senha">Senha</label><br>
         <input type="password" name="senha" id="senha" placeholder="digite sua senha"><br><br>
@@ -39,7 +39,7 @@
         <br><br><br>        
     </form>
 
-    <form action="backend/cadastro.js">
+    <form action="backend/cadastro.js" method="POST">
         <label for="email2">E-mail</label><br>
         <input type="email" name="email" id="email2" required><br>
         
@@ -77,41 +77,45 @@
         <label for="php">PHP</label><br><br>
 
         <label for="estado">Escolha o estado:</label>
-        <select name="estado" id="estado">
-            <option value="" selected disabled>Selecione uma opção</option>
-            <option value="AC">Acre</option>
-            <option value="AL">Alagoas</option>
-            <option value="AP">Amapá</option>
-            <option value="AM">Amazonas</option>
-            <option value="BA">Bahia</option>
-            <option value="CE">Ceará</option>
-            <option value="DF">Distrito Federal</option>
-            <option value="ES">Espírito Santo</option>
-            <option value="GO">Goiás</option>
-            <option value="MA">Maranhão</option>
-            <option value="MT">Mato Grosso</option>
-            <option value="MS">Mato Grosso do Sul</option>
-            <option value="MG">Minas Gerais</option>
-            <option value="PA">Pará</option>
-            <option value="PB">Paraíba</option>
-            <option value="PR">Paraná</option>
-            <option value="PE">Pernambuco</option>
-            <option value="PI">Piauí</option>
-            <option value="RJ">Rio de Janeiro</option>
-            <option value="RN">Rio Grande do Norte</option>
-            <option value="RS">Rio Grande do Sul</option>
-            <option value="RO">Rondônia</option>
-            <option value="RR">Roraima</option>
-            <option value="SC">Santa Catarina</option>
-            <option value="SP">São Paulo</option>
-            <option value="SE">Sergipe</option>
-            <option value="TO">Tocantins</option>
-        </select>
+
+        <fieldset>
+            <legend>Estados</legend>
+            <select name="estado" id="estado">
+                <option value="" selected disabled>Selecione uma opção</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+            </select>
+        </fieldset>
         <br><br>
-
         <label for="mensagem">Informações adicionais:</label><br>
-        <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Mensagem" ></textarea><br><br>
+        <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Mensagem" ></textarea><br><br> 
 
+        <input type="button" value="Teste">
         <input type="submit" value="Cadastrar">
     </form>
 </body>
