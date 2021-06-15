@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Bootstrap</title>
+    <style>        
+        [class*="container"] {
+            background-color: skyblue;
+            margin-bottom: 10px;
+        }
+
+        [class*="col"] {
+            background-color: crimson;
+            padding: 1em;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>    
+    <h1>Bootstrap Grid</h1>
+    <!-- 
+        Grid Breakpoints 
+
+        xs = <576px
+        sm = >=576px
+        md = >=768px
+        lg = >=992px
+        xl = >=1200px
+        xxl = >=1400px                
+    -->    
+    <h2>Grid containers</h1>
+    <div class="container">Container normal</div>
+    <div class="container-fluid">Container fluid</div>
+    <div class="container-md">100% de largura até o medium breakpoint</div>    
+    <hr>
+
+    <h2>Grid (12 colunas)</h2>
+
+    <h3>Exemplo 1</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">6/12</div>
+            <div class="col">3/12</div>
+            <div class="col">3/12</div>
+        </div>
+        <div class="row">
+            <div class="col">6/12</div>
+            <div class="col">6/12</div>
+        </div>
+    </div>
+
+    <h3>Exemplo 2</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">8/12</div>
+            <div class="col-lg-4">4/12</div>
+        </div>
+    </div>
+
+    <h3>Exemplo 3</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12</div>
+            <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12</div>
+            <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12</div>
+            <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12</div>
+            <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12</div>
+            <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12</div>
+            <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12</div>
+            <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12</div>
+            <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12</div>
+            <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12</div>
+            <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12</div>
+            <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12</div>
+        </div>
+    </div>
+    <hr>
+
+    <h2>Gutter</h2>
+    <div class="container overflow-hidden">
+        <div class="row gx-4">
+            <div class="col-12">12/12</div>
+            <div class="col-12">12/12</div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
