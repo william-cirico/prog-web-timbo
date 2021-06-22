@@ -39,7 +39,7 @@
         Métodos de inserção:
         
         elem.append(nodes ou strings) -> Adiciona o node ou a string no final do elem
-        elem.preprend(nodes ou strings) -> Adiciona o node ou a string no começo do elem
+        elem.prepend(nodes ou strings) -> Adiciona o node ou a string no começo do elem
         elem.before(nodes ou strings) -> Adiciona o node ou a string antes do elem
         elem.after(nodes ou strings) -> Adiciona o node ou a string depois do elem
         elem.replaceWith(nodes ou string) -> Substitui elem pelo node ou string
@@ -71,18 +71,18 @@
 
         // Remover um node
         // {
-        //     let lista = document.querySelector("ul")
-        //     lista.remove()
+            let lista2 = document.querySelector("ul")
+            lista2.remove()
         // }
 
         
         // {
         //     // Clonar um node
         //     // cloneNode(true) -> Clona o node com todos os elementos filhos
-        //     // cloneNode(false) -> Clona o node sem os elementos filhos
-        //     let div2 = div.cloneNode(true)
-        //     div2.textContent = "Outro alerta"
-        //     document.body.append(div2)
+        //     // cloneNode(false) -> Clona o node sem os elementos filhos        
+                let div2 = div.cloneNode(true)
+                div2.textContent = "Outro alerta"
+                document.body.append(div2)
         // }
 
         /*
@@ -97,7 +97,7 @@
 
         2 - Insira <li>Item 2</li><li>Item 3</li> na seguinte lista:
         <ul>
-            <li>Item 1</li>
+            <li>Item 1</li>            
             <li>Item 4</li>
         </ul>
 
@@ -148,6 +148,36 @@
                 </ul>
             </li>
         </ul>
+
+        1)
+        let lista = document.querySelector("#elem")
+
+        function clear(elem) {            
+            elem.innerHTML = ""            
+        }
+        
+        function clear2(elem) {
+            while(elem.firstElementChild) {
+                elem.firstElementChild.remove()
+            }
+        }
+
+
+        2)
+
+        let li = document.querySelector("ul li:first-child")
+        li.insertAdjacentHTML("afterend", "<li>Item 2</li><li>Item 3</li>")
+        
+        3)
+        let lis = document.querySelectorAll("li")
+
+        for (let li of lis) {              
+            let descendentes = li.querySelectorAll("li").length
+
+            if (descendentes) {
+                li.firstChild.data += ` [${descendentes}]`
+            }
+        }
         */
     </script>
 </body>

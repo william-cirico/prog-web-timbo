@@ -106,6 +106,19 @@
 
         // Aplicando a cor laranja
         link.style.color = 'orange';
+
+        let links = document.querySelectorAll("li a")
+        for (let link of links) {
+            let href = link.getAttribute("href")
+            
+            if (!href.includes("://")) continue
+            if (href.startsWith("http://internal.com")) continue
+
+            link.style.color = "orange"
+        }
+
+        // Com seletor CSS
+        document.querySelector("a[href*='://']:not([href^='http://internal.com'])")
         */
     </script>
 </body>

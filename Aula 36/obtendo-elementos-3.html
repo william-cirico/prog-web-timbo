@@ -25,7 +25,7 @@
         <li>Item 2</li>
     </ul>
 
-    <script src="static/js/obtendo-elementos.js">
+    <script>
         {
             // Selecionar o elemento pelo Id:
             let elemento = document.getElementById("elem")
@@ -97,12 +97,12 @@
         </html>
 
         Diga como acessar:
-        1. A <table> com o id="age-table".
-        2. Todos os elementos <label> dentro da <table> (3 elementos).
-        3. O primeiro <td> na tabela (com a palavra "Age").
-        4. O <form> com name="search".
-        5. O primeiro <input> nesse form.
-        6. O último <input> nesse form.
+        1. A <table> com o id="age-table". -> let table = document.querySelector("#age-table")
+        2. Todos os elementos <label> dentro da <table> (3 elementos). -> table.querySelectorAll("label")
+        3. O primeiro <td> na tabela (com a palavra "Age"). -> table.querySelector("td")
+        4. O <form> com name="search". -> let form = document.querySelector("form[name=search]")
+        5. O primeiro <input> nesse form. -> form.querySelectorAll("input")[0]
+        6. O último <input> nesse form.  ->form.querySelectorAll("input")[1]
         */
     </script>
 </body>
