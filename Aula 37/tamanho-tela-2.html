@@ -15,8 +15,12 @@
     <a href="#escondido">Clique aqui!</a>    
     <div id="escondido">Texto escondido</div>    
     <script>
-        console.log(document.documentElement.clientHeight)
-        console.log(document.documentElement.clientWidth)
+        // Tamanho do monitor
+        console.log(screen.height)
+        console.log(screen.width)
+
+        // Altura da tela
+        console.log(document.documentElement.scrollHeight)        
 
         // Scroll atual da tela
         console.log(window.pageYOffset)
@@ -30,7 +34,12 @@
 
         // scrollIntoView -> Scroll na página para tornar o elemento visível
         let div = document.querySelector("div")
-        div.scrollIntoView(top)
+        div.scrollIntoView()
+
+        // Parar o scroll
+        document.body.style.overflow = "hidden"
+        // Voltar ao normal
+        document.body.style.overflow = ""
     </script>
 </body>
 </html>

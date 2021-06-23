@@ -72,6 +72,15 @@
             right: 10px, // 10px será usado como valor default
             html: "Olá", // "Olá" será usado como valor default            
         }   
+
+        function mostraNotificacao({top = 10, right = 10, html = "Olá"}) {
+            let notificacao = document.createElement("div")
+            notificacao.className = "notificacao"
+            notificacao.innerHTML = html
+            notificacao.style.top = top + "px"
+            notificacao.style.right = right + "px"
+            document.body.append(notificacao)
+        }
         */
     </script>
 </body>
