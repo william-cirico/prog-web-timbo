@@ -94,6 +94,14 @@
         </body>
 
         Posicione a bola no centro do campo
+
+        
+        "use strict"
+        let campo = document.querySelector(".campo"),
+            bola = document.querySelector(".bola")
+
+        bola.style.left = Math.round(campo.clientWidth / 2 - bola.offsetWidth / 2) + "px"
+        bola.style.top = Math.round(campo.clientHeight / 2 - bola.offsetHeight / 2) + "px"        
         */
     </script>
 </body>
