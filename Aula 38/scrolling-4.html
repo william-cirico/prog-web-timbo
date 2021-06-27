@@ -34,6 +34,20 @@
         Enquanto a página não estiver sido rolada para pelo menos o tamanho da janela, é invisível.
         Quando a página tiver rolado mais que o tamanho da janela, irá aparecer o botão. Se a página for rolada para o topo, ele some.        
         Quando o botão for clicado a página é rolada para o topo.                
+        
+
+        // Resolução:
+        let botaoVoltar = document.querySelector("#voltar")
+        botaoVoltar.addEventListener("click", () => {
+            window.scrollTo(pageXOffset, 0)
+        })
+        arrowTop.onclick = function() {
+            window.scrollTo(0, 0)
+        }
+
+        window.addEventListener('scroll', function() {
+            botaoVoltar.hidden = (pageYOffset < document.documentElement.clientHeight)
+        })
         */
     </script>
 </body>

@@ -56,6 +56,38 @@
         Crie uma lista selecionável (quando clicar em uma li a cor muda)
         Se segurar a tecla Ctrl o elemento é selecionado em conjunto com os elementos já selecionados
 
+        // Resolução:
+        <style>
+            .selecionada {
+                background: yellow;
+            }
+        </style>
+
+        <script>
+            let ul = document.querySelector("ul")        
+
+            ul.addEventListener("click", (event) => {
+                if (event.target.tagName != "LI") return
+
+                if (event.ctrlKey) {
+                    alternarSelecao(event.target)
+                } else {
+                    selecaoUnica(event.target)
+                }
+            })                
+
+            function alternarSelecao(li) {
+                li.classList.toggle("selecionada");
+            }
+
+            function selecaoUnica(li) {
+                let liSelecionadas = ul.querySelectorAll(".selecionada");
+                for (let elem of liSelecionadas) {
+                    elem.classList.remove("selecionada");
+                }
+                li.classList.add("selecionada");
+            }
+
         2) https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents
         */
     </script>

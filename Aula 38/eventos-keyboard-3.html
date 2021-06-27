@@ -43,6 +43,35 @@
         )
 
         A mensagem Olá! vai aparecer na tela quando as teclas Q e W forem pressionadas simultaneamente
+
+        // Resolução:
+        function rodaNasTeclas(func, ...codes) {
+            let teclasPressionadas = new Set()
+
+            document.addEventListener('keydown', function(event) {
+                teclasPressionadas.add(event.code)
+
+                for (let code of codes) {
+                    if (!teclasPressionadas.has(code)) {
+                        return
+                    }
+                }
+
+                teclasPressionadas.clear()
+
+                func()
+            })
+
+            document.addEventListener('keyup', function(event) {
+                teclasPressionadas.delete(event.code)
+            })
+        }
+
+        rodaNasTeclas(
+            () => alert("Hello!"),
+            "KeyQ",
+            "KeyW"
+        )
         */
     </script>
 </body>
