@@ -40,10 +40,7 @@
         let botaoVoltar = document.querySelector("#voltar")
         botaoVoltar.addEventListener("click", () => {
             window.scrollTo(pageXOffset, 0)
-        })
-        arrowTop.onclick = function() {
-            window.scrollTo(0, 0)
-        }
+        })        
 
         window.addEventListener('scroll', function() {
             botaoVoltar.hidden = (pageYOffset < document.documentElement.clientHeight)
