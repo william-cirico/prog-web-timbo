@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    <script>
+        /*
+        Map é uma coleção de dado chave-valor, parecido com um objeto. A principal diferança
+        é que Map possibilita a utilização de chaves de qualquer tipo.
+
+        Métodos e propriedades do map:
+        * new Map() -> Cria o map
+        * map.set(chave, valor) -> Armazena o valor na chave informada.
+        * map.get(chave) -> Obtém o valor pela chave, se a chave não existir retorna undefined
+        * map.has(chave) -> Retorna true se a chave existir, false em caso contrário
+        * map.delete(chave) -> Remove o valor pela chave
+        * map.clear() -> Remove tudo do map
+        * map.size() -> Retorna a quantidade de elementos dentro do map.
+        */
+
+        {
+            let map = new Map()
+
+            map.set("1", "string")
+            map.set(1, "number")
+            map.set(true, "bool")
+
+            console.log(map.get("1"))
+            console.log(map.get(1))
+            console.log(map.get(true))
+        }
+
+        {
+            // Map aceita qualquer tipo de valor como chave, incluindo funções e objetos
+            let map = new Map([
+                [{}, "Objeto"],
+                [function() {}, "Função"]
+            ])
+
+
+            // Podemos iterar sobre o map com o for of
+            for (let [chave, valor] of map) {
+                console.log(`Chave: ${chave} | Valor: ${valor}`)
+            }                            
+
+            // Ou utilizando o forEach
+            map.forEach((valor, chave) => {
+                console.log(`Chave: ${chave} | Valor: ${valor}`)
+            })
+        }
+
+
+        /*
+        https://dmitripavlutin.com/maps-vs-plain-objects-javascript/
+
+        Quando utilizar o Map
+
+        1. Quando precisar utilizar um objeto ou uma função como chave.
+        2. Quando a chave for uma palavra chave como por exemplo: toString.    
+        */
+
+    </script>
+</body>
+</html>
