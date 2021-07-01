@@ -23,7 +23,7 @@
             alert("Oi!")
         }
 
-        setTimeout(dizOi) // Vai executar a função dizOi depois de 1 segundo(padrão)
+        setTimeout(dizOi, 2000) // Vai executar a função dizOi depois de 1 segundo(padrão)
 
         // Os argumentos (arg1, arg2, argN...) Serão passados para dentro da callback function
         function dizOiComArgs(frase, quem) {
@@ -33,7 +33,7 @@
         let idTimer = setTimeout(dizOiComArgs, 3000, "Olá", "Pedro")
 
         // Para cancelar a execução
-        // clearTimeout(idTimer)
+        clearTimeout(idTimer)
 
 
         // setInterval(funcao, delay, [arg1], [arg2])
@@ -57,7 +57,7 @@
         e faça ele aparecer na tela no formato: 
         hh:mm:ss
 
-        3) Faça uma cronômetro através da função criaCronometro(tempo, callback) que receba o valor inicial através de um <input type="time"> 
+        3) Faça uma timer através da função criaTimer(tempo, callback) que receba o valor inicial através de um <input type="time"> 
         e dispare uma função callback quando o tempo acabar.
         */
     </script>
