@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage API</title>
+</head>
+<body>
+    <h1>Web Storage API</h1>
+    <select id="corFundo">
+        <option value="black">Preto</option>
+        <option value="red">Vermelho</option>
+        <option value="blue">Azul</option>
+    </select>
+    <select id="corTexto">
+        <option value="orange">Laranja</option>
+        <option value="green">Verde</option>
+        <option value="yellow">Amarelo</option>
+    </select><br>
+    <a href="info.html">Ver o que está armazenado na Web Storage</a>
+    <script>
+        /*
+        Web Storage API provê mecanismos pelos quais os navegadores podem armazenar valores
+        compostos por chave/valor.
+
+        Existem dois lugares onde é possível armazenar os valores: 
+        * sessionStorage -> Mantém os dados enquanto a aba do navegador estiver aberta
+        * localStorage -> Mantém os dados mesmo quando o navegador é fechado        
+        */
+
+        let selectCorFundo = document.querySelector("#corFundo")
+        let selectCorTexto = document.querySelector("#corTexto")        
+
+        if (!localStorage.getItem("corTexto")) {            
+            armazenarValores()
+        } else {
+            modificarEstilo()
+        }
+
+        function armazenarValores() {
+            // setItem(chave, valor) -> Armazenar valores
+            sessionStorage.setItem("corFundo", selectCorFundo.value)
+            localStorage.setItem("corTexto", selectCorTexto.value)
+
+            modificarEstilo()
+        }
+
+        function modificarEstilo() {
+            // getItem(chave) -> Obter valores armazenados
+            let corFundoAtual = sessionStorage.getItem("corFundo"),
+                corTextoAtual = localStorage.getItem("corTexto")
+
+            selectCorFundo.value = corFundoAtual
+            selectCorTexto.value = corTextoAtual
+
+            document.body.style.backgroundColor = corFundoAtual
+            document.body.style.color = corTextoAtual
+        }
+        
+        // Adicionando eventos nos selects 
+        selectCorFundo.onchange = armazenarValores
+        selectCorTexto.onchange = armazenarValores
+
+        // removeItem(chave) -> Remove a chave
+        // sessionStorage.removeItem("corFundo")
+        // localStorage.removeItem("corTexto")
+
+        // clear() -> remove todos os valores armazenados
+
+
+        /*
+        1) Crie uma <textarea> que não perca o valor digitado mesmo se o usuário fechar o navegador.
+
+
+        2) Crie um cronômetro que continue funcionando mesmo se o usuário fechar o navegador.
+        */
+    </script>
+</body>
+</html>

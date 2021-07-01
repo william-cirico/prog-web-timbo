@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações Web Storage</title>
+</head>
+<body>
+    <h1>Informações Web Storage</h1>
+    <p id="session">Cor de fundo armazenada na sessionStorage: </p>
+    <p id="local">Cor de texto armazenada na localStorage: </p>
+    <a href="web-storage.html">Voltar</a>
+    <script>
+        let session = document.querySelector("#session"),
+            local = document.querySelector("#local")
+        
+        session.textContent += sessionStorage.getItem("corFundo")
+        local.textContent += localStorage.getItem("corTexto")
+
+         // Existe um evento que é disparado quando localStorage ou sessionStorage é atualizada:
+         window.addEventListener("storage", e => {
+            // Chave modificada
+            console.log(e.key)
+            // Valor antigo
+            console.log(e.oldValue)
+            // Novo valor
+            console.log(e.newValue)
+            // URL do documento onde a atualização aconteceu
+            console.log(e.url)
+            // Objeto onde o evento aconteceu
+            console.log(e.storageArea)
+        })        
+    </script>
+</body>
+</html>
