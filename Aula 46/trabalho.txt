@@ -21,6 +21,7 @@ O projeto deve ter uma classe Aluno que contenha os atributos:
 Os seguinte método deve ser implementado:
     * constructor(matricula, nome, telefone, email)
     * editarInformacoes(nome, telefone, email)
+    * cadastraNotas(n1, n2, n3)
     * calculaMedia()
 
 O site deve ter:
@@ -30,7 +31,7 @@ O site deve ter:
       e a opção de cadastrar um novo aluno.
         - Todos os dados do aluno devem aparecer na tabela: matricula, nome, telefone, email, notas e média.
         - Para cada aluno deve ser disponibilizado a opção de editar informações.
-        - Para cada aluno deve ser disponibilizado a opção de cadastrar notas.
+        - Para cada aluno deve ser disponibilizado a opção de cadastrar notas.        
     * Uma página para cadastrar turma.
     * Uma página para cadastrar aluno.
     * Uma página para editar as informações do aluno.
