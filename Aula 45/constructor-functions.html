@@ -14,7 +14,7 @@
 
         function Pessoa(nome, idade) {
             this.nome = nome
-            this.idade = idade
+            this.idade = idade                        
         }
 
         /*
@@ -26,11 +26,11 @@
         da classe Pessoa e não para cada instância da classe.
         */
         Pessoa.prototype.apresentar = function() {
-            return `Olá meu nome é ${nome}, eu tenho ${idade} anos`
+            return `Olá meu nome é ${this.nome}, eu tenho ${this.idade} anos`
         }
 
         let joao = new Pessoa("João", 22)
-        console.log(joao.apresentar())
+        console.log(joao.apresentar())        
     </script>
 </body>
 </html>
