@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <script type="module">
+        /* 
+        Quando fazemos requisições para uma API Restful ou precisamos
+        armazenar um objeto dentro da localStorage ou sessionStorage.
+        Precisamos converter esse objeto para string.
+
+        Para isso utilizamos o formato JSON
+
+        Um objeto no formato JSON é similar a um objeto em JS:
+
+        JSON:
+        {
+            "nome": "Pedro",
+            "idade": 30,            
+        }
+
+        JS:
+        {
+            nome: Pedro,
+            idade: 30
+        }
+        */
+
+        // Para converter um objeto JS para o formato JSON:
+        let aluno = {
+            nome: "Maria",
+            idade: 20,            
+        }
+
+        let alunoJson = JSON.stringify(aluno)
+        console.log(alunoJson)        
+        console.log(typeof alunoJson)
+
+        // Para converter de JSON para um objeto JS
+        console.log(JSON.parse(alunoJson))
+
+        // Salvando um objeto no localStorage
+        let turma = {
+            codigo: 123,
+            nomeTurma: "Programador WEB",
+            alunos: [
+                {
+                    matricula: 111,
+                    nome: "João",
+                    telefone: "(47) 9 9999-9999",
+                    email: "joao@email.com",
+                    notas: [10, 8, 9],
+                    media: 9
+                }
+            ]            
+        }   
+
+        localStorage.setItem("turma", JSON.stringify(turma))        
+
+        // Obtendo o objeto do localStorage
+        turma = JSON.parse(localStorage.getItem("turma"))
+        console.log(turma)        
+    </script>
+</body>
+</html>

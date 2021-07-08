@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquivo com Link</title>
+</head>
+<body>    
+    <script>        
+        let turma = {
+            codigo: 123,
+            nomeTurma: "Programador WEB",
+            alunos: [
+                {
+                    matricula: 111,
+                    nome: "João",
+                    telefone: "(47) 9 9999-9999",
+                    email: "joao@email.com",
+                    notas: [10, 8, 9],
+                    media: 9
+                },
+                {
+                    matricula: 123,
+                    nome: "Pedro",
+                    telefone: "(47) 9 9999-9999",
+                    email: "pedro@email.com",
+                    notas: [10, 10, 10],
+                    media: 10
+                }
+            ]            
+        }
+
+        // Adicionando a turma no localStorage
+        localStorage.setItem("turma", JSON.stringify(turma))
+
+        function criaLinks() {            
+            const turma = JSON.parse(localStorage.getItem("turma"))            
+
+            // Criando os links para cada aluno
+            for (let aluno of turma.alunos) {                
+                const link = document.createElement("a")
+
+                // Definindo a query string que será utilizada para obter a matrícula do aluno
+                link.href = `obtendoInformacoesURL.html?matricula=${aluno.matricula}`
+                link.innerHTML = aluno.nome + "<br>"
+
+                document.body.append(link)
+            }
+        }
+
+        criaLinks()
+    </script>
+</body>
+</html>

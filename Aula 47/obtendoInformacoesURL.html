@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obtendo informações através da URL</title>
+</head>
+<body>
+    <input type="text" id="nome">
+    <input type="email" id="email">
+    <script>
+        window.addEventListener("load", () => {            
+            // Obtendo a query string
+            const queryString = new URLSearchParams(location.search)
+            // Obtendo somente o valor da chave matricula
+            const matricula = queryString.get("matricula")
+            // Obtendo a turma do localStorage
+            const turma = JSON.parse(localStorage.getItem("turma"))            
+            // Achando o aluno que está salvo no localStorage
+            for (let aluno of turma.alunos) {
+                if (aluno.matricula === +matricula) {
+                    // Adicionando as informações do aluno no localStorage
+                    document.querySelector("#nome").value = aluno.nome
+                    document.querySelector("#email").value = aluno.email       
+                }
+            }
+        })
+    </script>
+</body>
+</html>
