@@ -7,24 +7,21 @@
 </head>
 <body>
     <input type="text" id="nome">
-    <input type="text" id="email">
+    <input type="email" id="email">
     <script>
         window.addEventListener("load", () => {            
-            // Obtendo os parâmetros da URL (query string)
-            let queryString = new URLSearchParams(location.search)
-            // Obtendo a matrícula enviada
-            let matricula = queryString.get("matricula")
-
-            // Achando o aluno que está salvo no localStorage:
-            turma = JSON.parse(localStorage.getItem("turma"))            
-
-            let inputNome = document.querySelector("#nome"),
-                inputEmail = document.querySelector("#email")
-
+            // Obtendo a query string
+            const queryString = new URLSearchParams(location.search)
+            // Obtendo somente o valor da chave matricula
+            const matricula = queryString.get("matricula")
+            // Obtendo a turma do localStorage
+            const turma = JSON.parse(localStorage.getItem("turma"))            
+            // Achando o aluno que está salvo no localStorage
             for (let aluno of turma.alunos) {
-                if (aluno.matricula === +matricula) {                                        
-                    inputNome.value = aluno.nome
-                    inputEmail.value = aluno.email
+                if (aluno.matricula === +matricula) {
+                    // Adicionando as informações do aluno no localStorage
+                    document.querySelector("#nome").value = aluno.nome
+                    document.querySelector("#email").value = aluno.email       
                 }
             }
         })

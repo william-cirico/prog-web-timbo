@@ -37,7 +37,7 @@
 
             // Altera o nome 
             set nome(valor) {
-                if (!this.#validaNome(valor)) {                    
+                if (this.#validaNome(valor)) {                    
                     throw "Nome inválido"
                 }                
                 this.#nome = valor
@@ -45,7 +45,7 @@
 
             // Definindo método privado
             #validaNome(nome) {                
-                return nome < 4
+                return nome.length < 4
             }
         }
 
