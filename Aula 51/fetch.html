@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+</head>
+<body>
+    <img src="" id="logo">
+    <script>
+        /*
+        Através da Fetch API podemos fazer requisições para:
+            Salvar um pedido,
+            Carregar informações de um usuário,
+            etc.
+        
+        Podemos fazer isso sem precisar recarregar a página (comportamento padrão quando enviamos um form html)
+
+        O termo para isso é AJAX (Asynchronous JavaScript And XML).
+
+        Sintaxe básica:
+        
+        let promise = fetch(url, [opcoes])
+        
+        Onde:
+            url -> A URL acessada
+            opcoes -> Parâmetros opcionais (method, headers, etc.)
+
+        Quando não passamos nenhuma opção, a requisição irá utilizar o method GET.
+
+        Uma requisição feita através da Fetch API retorna uma Promise com o objeto built-in da classe Response.
+        https://developer.mozilla.org/pt-BR/docs/Web/API/Response
+        
+        A promise é rejeitada se a requisição falhar devido a um problema de conexão.
+        */
+
+        // Utilizando async/await
+        async function fetchGit() {
+            let url = "https://api.github.com/users/william-cirico";
+           
+            // A resposta completa incluindo os headers
+            let response = await fetch(url);
+            console.log(response);
+
+            // Código de resposta
+            console.log(`Código de resposta: ${response.status}`);
+            
+            // Verificar se a requisição foi bem sucedida            
+            if (response.ok) console.log("Deu tudo certo!");
+
+            // Para obter o body da resposta podemos utilizar o método .json();
+            let body = await response.json();
+            console.log(body);
+
+            // Para obter os cabeçalhos da resposta
+            for (let [chave, valor] of response.headers) {
+                console.log(`${chave} = ${valor}`);
+            }
+        }
+
+        fetchGit();
+
+        // Utilizando then
+        {
+            // let url = "https://api.github.com/users/william-cirico";
+            // fetch(url)
+            //     .then(response => response.json())
+            //     .then(body => console.log(JSON.stringify(body, null, 4)));
+        }
+
+        // Enviando headers personalizados        
+        async function fetchBasicAuth() {
+            // let protectedUrl = "https://jigsaw.w3.org/HTTP/Basic/";
+            let protectedUrl = "http://httpbin.org/basic-auth/foo/bar";
+            
+            /* 
+                Basic Auth é um tipo de autenticação em que o cabeçalho de Authorization  precisa estar codificado formato Base-64.                
+
+                Os dados codificados são o username:password
+            */
+            let basicAuth = btoa("foo:bar");
+            console.log(basicAuth);
+
+            
+            let response = await fetch(protectedUrl, {                
+                headers: {
+                    Authorization: `Basic ${basicAuth}`
+                }
+            });
+
+            let body = await response.json();    
+            
+            console.log(body);
+        }            
+
+        // fetchBasicAuth();
+
+
+        // Fazendo uma requisição do tipo POST
+        async function fetchPost() {
+            let url = "https://httpbin.org/post";
+
+            let body = JSON.stringify({ teste: "Teste" });
+
+            let response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body
+            });
+
+            let responseBody = await response.json();
+
+            console.log(responseBody);
+            
+            // https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers/Content-Type
+        }
+        
+        // fetchPost();              
+
+        async function getCat() {
+            let response = await fetch("https://api.thecatapi.com/v1/images/search", {
+                headers: {
+                    "x-api-key": "ea2c9cfc-5fe7-46fa-adf1-9c741d90259a"
+                }
+            });
+
+            if (!response.ok) {
+                return console.log("A requisição falhou!")
+            }
+
+            let body = await response.json();
+
+            createCatImage(body[0].url);
+        }
+
+        function createCatImage(url) {
+            const img = document.createElement("img");
+
+            img.src = url;
+
+            document.body.append(img);
+        }
+
+        getCat();
+        /*
+        Exercícios
+
+        1) Implemente um script que consuma a api: https://thecatapi.com/.
+
+        * Crie uma página que carregue 10 imagens de um gato com base na sua raça.
+        * Crie uma página que carregue 10 gifs de gatos.
+        
+        2) Implemente um script que consuma a api: https://rickandmortyapi.com/.
+        
+        * Crie uma página que carregue 9 personagens aleatórios e os mostre em cards.
+        * Crie uma página que permita selecionar um episódio e mostra todos os personagens que fizeram parte daquele episódio.       
+        * Crie uma página que mostre todos os Ricks que estão vivos.
+        */
+    </script>
+</body>
+</html>
