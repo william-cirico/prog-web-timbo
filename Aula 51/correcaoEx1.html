@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 1</title>
+    <style>
+        #catDiv {
+            width: 60%;
+            margin: auto;                        
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <select id="catSelect"></select>
+    <div id="catDiv"></div>
+    <script>
+        /*
+        1) Implemente um script que consuma a api: https://thecatapi.com/.
+
+        * Crie uma página que carregue 10 imagens de um gato com base na sua raça.
+        */
+        const catSelect = document.querySelector("#catSelect"),
+              catDiv = document.querySelector("#catDiv");
+
+        async function populateCatSelect() {
+            const response = await fetch("https://api.thecatapi.com/v1/breeds", {
+                headers: {
+                    "x-api-key": "ea2c9cfc-5fe7-46fa-adf1-9c741d90259a"
+                }
+            });
+
+            if (response.ok) {
+                const cats = await response.json();
+
+                for (let cat of cats) {
+                    const {id, name} = cat;
+
+                    const newOption = new Option(name, id);        
+                    
+                    catSelect.append(newOption);
+                }
+            } else {
+                console.log("Não foi possível carregar as raças dos gatos");
+            }
+
+            showCatImages();
+        }
+
+        async function showCatImages() {
+            const catId = catSelect.value;
+
+            const response = await fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${catId}&limit=10`, {
+                headers: {
+                    "x-api-key": "ea2c9cfc-5fe7-46fa-adf1-9c741d90259a"
+                }
+            });
+
+            if (response.ok) {
+                const cats = await response.json();
+
+                clearElement(catDiv);
+
+                for (let cat of cats) {                                                            
+                    createImage(cat.url);
+                }
+            } else {
+                console.log("Não foi possível carregar as imagens dos gatos");
+            }
+        }
+
+        function createImage(url) {
+            const img = document.createElement("img");
+            img.src = url;
+            catDiv.append(img);
+        }
+
+        function clearElement(element) {
+            while (element.children.length) {
+                element.firstElementChild.remove();
+            }
+        }
+
+        catSelect.addEventListener("change", showCatImages);
+
+        populateCatSelect();
+    </script>
+</body>
+</html>
