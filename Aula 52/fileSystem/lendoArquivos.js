@@ -23,3 +23,12 @@ fs.readFile(path.resolve(__dirname, "teste.txt"), (err, data) => {
         console.log(err.message);
     }
 })();
+
+/*
+Exercício
+
+1) Crie um script que leia o arquivo exercioNomes.txt e mostra todos os nomes que começam com a letra A
+presentes no arquivo.
+
+Obs.: Nome e sobrenome.
+*/

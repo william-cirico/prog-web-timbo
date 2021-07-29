@@ -2,6 +2,24 @@ const fs = require("fs");
 const fsPromises = require("fs/promises");
 const path = require("path");
 
+// Criando uma pasta (Callback)
+const nomeNovaPasta = path.resolve(__dirname, "novaPasta");
+fs.mkdir(nomeNovaPasta, { recursive: true }, (err) => {
+    if (err) {
+        return console.log(err.message);
+    }    
+});
+
+// Criando uma pasta (Promise)
+(async () => {
+    const nomeNovaPasta = path.resolve(__dirname, "novaPasta");
+    try {
+        await fsPromises.mkdir(nomeNovaPasta, { recursive: true });
+    } catch (err) {
+        console.log(err.message);
+    }    
+})();
+
 // Lendo os arquivos dentro de uma pasta (Callback)
 const nomePasta = path.resolve(__dirname, "..", "modulosNode");
 fs.readdir(nomePasta, (err, files) => {
@@ -69,4 +87,7 @@ Exercício
 e retorne um vetor com todos os arquivos presentes naquele diretório.
 
 Obs.: Diretórios não devem ser incluídos.
+
+2) Crie uma função moveFiles(oldFolderPath, newFolderPath) que move os arquivos da pasta original
+para a nova pasta.
 */
