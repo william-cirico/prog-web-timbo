@@ -30,6 +30,8 @@ Exercício
 1) Crie um script que leia o arquivo exercioNomes.txt e mostra todos os nomes que começam com a letra A
 presentes no arquivo.
 
+Obs.: Nome e sobrenome.
+
 2) Crie uma função getUserByName(name) que retorne o usuário obtido através do arquivo "users.json". Caso o usuário
 não exista a função deve retornar undefined.
 
@@ -41,5 +43,7 @@ email: [email do usuário]
 
 Caso o usuário não existir mostrar a mensagem: "Usuário não foi encontrado."
 
-Obs.: Nome e sobrenome.
+3) Faça um script que leia o arquivo exercioNomes.txt e utilize a biblioteca chalk (https://www.npmjs.com/package/chalk) para
+mostrar os nomes que começam com a letra A em vermelho, os nomes que começam com a letra C em azul e os
+nomes que começam com a letra D em magenta.
 */
