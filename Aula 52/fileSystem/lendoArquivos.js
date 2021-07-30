@@ -86,4 +86,41 @@ async function getUserByName(name) {
 3) Faça um script que leia o arquivo exercioNomes.txt e utilize a biblioteca chalk (https://www.npmjs.com/package/chalk) para
 mostrar os nomes que começam com a letra A em vermelho, os nomes que começam com a letra C em azul e os
 nomes que começam com a letra D em magenta.
+
+const path = require("path");
+const fsPromises = require("fs/promises");
+const { EOL } = require("os");
+const chalk = require("chalk");
+
+(async () => {
+    try {   
+        const data = await fsPromises.readFile(path.resolve(__dirname, "exercicioNomes.txt"));
+        const nomes = data.toString("utf-8").split(EOL);
+
+        for (let nome of nomes) {
+            switch (nome[0].toUpperCase()) {
+                case "A":
+                    console.log(chalk.red(nome));
+                    break;
+                case "C":
+                    console.log(chalk.blue(nome));
+                    break;
+                case "D":
+                    console.log(chalk.magenta(nome));
+                    break;
+                default:
+                    console.log(nome);
+            }
+        }
+        // const nomesComA = nomes.filter(nome => nome[0].toUpperCase() === "A");
+        // const nomesComC = nomes.filter(nome => nome[0].toUpperCase() === "C");
+        // const nomesComD = nomes.filter(nome => nome[0].toUpperCase() === "D");
+
+        // nomesComA.forEach(nome => console.log(chalk.red(nome)));
+        // nomesComC.forEach(nome => console.log(chalk.blue(nome)));
+        // nomesComD.forEach(nome => console.log(chalk.magenta(nome)));
+    } catch (err) {
+        console.log(err.message);
+    }
+})();
 */
