@@ -1,0 +1,25 @@
+1) Uma imobiliária deseja desenvolver um sistema para gerenciar imóveis que são colocados à venda e
+à locação. Este sistema deverá ser composto de uma plataforma para manter os dados dos imóveis e seus
+proprietários e também para manter os contratos de locação que são feitos. No cadastro dos imóveis, 
+deve-se contemplar o número de quartos, número de banheiros, área em metros quadrados e outros que
+considerar importantes. Deve-se também cadastrar os dados pessoais e de contato dos proprietários de
+imóveis e dos locatários. Para cada imóvel que for locado, deve-se cadastrar um contrato de locação com
+as datas de início e término do contrato, o valor do aluguel, o dia de vencimento e um campo que possibilite
+colocar algumas observações importantes.
+Deve-se disponibilizar aos usuários um site que permita que as pessoas interessadas busquem
+imóveis para locação ou venda. É importante considerar que, os filtros para selecionar os imóveis de acordo
+com as características desejadas pelo cliente, devem ser bem definidos e atender ao máximo de
+características possível (p.e.: nº quartos, bairro, preço, área total, se tem piscina, churrasqueira etc…).
+
+2) Uma livraria deseja manter um cadastro de clientes como estratégia de fidelizá-los e de propor novas
+aquisições baseado no que já comprou anteriormente.
+Sobre cada cliente, é importante manter seu endereço, telefone, CPF e lista dos livros que este
+cliente já comprou. Para cada compra, é importante guardar a data em que esta foi realizada e o valor
+gasto. Para cada real gasto, o cliente deve acumular 1 ponto no programa de fidelidade. Um cliente pode
+comprar muitos livros. Um livro pode ser vendido para mais de um cliente, pois geralmente há vários livros
+em estoque. Um cliente pode ser pessoa física ou jurídica. Se for pessoa jurídica, o seu identificador deve
+ser o CNPJ. Cada cliente tem um código único.
+A livraria compra livros de editoras. Sobre as editoras, a livraria precisa de seu código, endereço,
+telefone de contato, e o nome de seu gerente. Deve-se manter um cadastro sobre cada livro na livraria.
+Para cada livro, é importante armazenar o nome do autor, assunto, editora, ISBN e a quantidade dos livros
+em estoque. Editoras diferentes não fornecem o mesmo tipo de livro.
