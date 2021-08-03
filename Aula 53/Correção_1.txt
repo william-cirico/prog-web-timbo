@@ -1,0 +1,56 @@
+1) Identificar as entidades:
+* Imóvel
+* Proprietário
+* Locatário
+* Contrato
+
+2) Identificar os relacionamentos:
+
+Imóvel x Contrato:
+* Um ímovel pode ter vários contratos.
+* Um contrato pode ter um imóvel.
+
+Proprietário x Imóvel:
+* Um proprietário pode ter vários imóveis.
+* Um imóvel pertence a um proprietário.
+
+Locatário x Contrato:
+* Um locatário pode assinar vários contratos.
+* Um contrato pode ser assinado por um locatário.
+
+Proprietário x Contrato:
+* Um proprietário pode assinar vários contratos.
+* Um contrato pode ser assinado por um proprietário.
+
+3) Identificar os atributos:
+Imóvel:
+* id
+* numero_quartos
+* numero_banheiros
+* area
+* piscina
+* churrasqueira
+
+Proprietário:
+* id
+* nome
+* cpf
+* telefone
+* endereço
+
+Locatário:
+* id
+* nome
+* cpf
+* telefone
+* endereço
+
+Contrato:
+* id
+* data_inicio
+* data_termino
+* valor
+* dia_vencimento
+* observações
+
+

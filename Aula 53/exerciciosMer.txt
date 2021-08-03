@@ -24,10 +24,18 @@ telefone de contato, e o nome de seu gerente. Deve-se manter um cadastro sobre c
 Para cada livro, é importante armazenar o nome do autor, assunto, editora, ISBN e a quantidade dos livros
 em estoque. Editoras diferentes não fornecem o mesmo tipo de livro.
 
-3) Uma empresa pretende desenvolver um sistema de folha de pagamento cujo processo de modelagem utilizará UML (Unified Modeling Language). Essa empresa tem três tipos de colaborador: o comissionado, o horista e o assalariado. Todos os colaboradores registram, para efeito de controle, o número de horas trabalhadas no mês. Adicionalmente, os comissionados registram o valor do percentual de comissão e o valor total de vendas acumulado no mês; os horistas registram o valor recebido por hora; e os assalariados registram o valor do salário.
-	Cada colaborador pertence a um departamento e cada departamento possui pelo menos um colaborador. No final de cada mês, cada departamento deve calcular o salário dos seus colaboradores da seguinte forma: os comissionados devem receber o valor total das vendas multiplicado pela percentagem, independentemente do número de horas trabalhadas; os horistas devem receber o valor da hora trabalhada multiplicado pelo número de horas trabalhadas; e os assalariados devem receber o valor nominal do salário.
+3) Uma empresa pretende desenvolver um sistema de folha de pagamento cujo processo de modelagem utilizará UML 
+(Unified Modeling Language). Essa empresa tem três tipos de colaborador: o comissionado, o horista e o assalariado. 
+Todos os colaboradores registram, para efeito de controle, o número de horas trabalhadas no mês. Adicionalmente, 
+os comissionados registram o valor do percentual de comissão e o valor total de vendas acumulado no mês; os horistas 
+registram o valor recebido por hora; e os assalariados registram o valor do salário.
+Cada colaborador pertence a um departamento e cada departamento possui pelo menos um colaborador. No final de cada mês, 
+cada departamento deve calcular o salário dos seus colaboradores da seguinte forma: os comissionados devem receber o valor 
+total das vendas multiplicado pela percentagem, independentemente do número de horas trabalhadas; os horistas devem receber 
+o valor da hora trabalhada multiplicado pelo número de horas trabalhadas; e os assalariados devem receber o valor nominal do salário.
 
-1.	Considerando essa situação e que o modelo que será elaborado para representá-la utilizará herança, desenhe o Diagrama Entidade-Relacionamento que contenha:
+1.	Considerando essa situação e que o modelo que será elaborado para representá-la utilizará herança, desenhe o Diagrama Entidade-Relacionamento 
+que contenha:
 •	as entidades mencionadas (departamento, colaborador e seus tipos);
 •	os atributos para cada uma das entidades;
 •	os relacionamentos entre as entidades e a cardinalidade dos relacionamentos;
@@ -35,6 +43,7 @@ em estoque. Editoras diferentes não fornecem o mesmo tipo de livro.
 
 2.	Incluir em seu projeto as entidades e relacionamentos que satisfaçam aos seguintes requisitos:
 •	Todo colaborador atua em projetos e um projeto pode ter diversos colaboradores;
-•	Um projeto possui data de início, previsão de duração, data de término, descrição e deve permitir fornecer a informação do total de horas de trabalho que foram realizadas;
+•	Um projeto possui data de início, previsão de duração, data de término, descrição e deve permitir fornecer a informação do total 
+de horas de trabalho que foram realizadas;
 •	Todo colaborador possui um gerente e um gerente gerencia um grupo de colaboradores;
 •	Um colaborador pode possuir dependentes (filhos, esposa/marido, pai/mãe etc);

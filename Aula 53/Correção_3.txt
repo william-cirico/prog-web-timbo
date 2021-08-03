@@ -1,0 +1,65 @@
+1) Identificar as entidades:
+* Comissionado
+* Horista
+* Assalariado
+* Departamento
+* Projeto
+* Gerente
+* Dependente
+
+2) Identificar os relacionamentos:
+Colaborador x Projeto
+* Um colaborador atua em vários projetos.
+* Um projeto pode ter diversos colaboraderes. 
+
+Colaborador x Gerente
+* Um colaborador é gerenciado por um gerente.
+* Um gerente gerencia vários colaboradores.
+
+Colaborador x Dependente
+* Um colaborador pode possuir vários dependentes.
+* Um dependente depende de um colaborador.
+
+Colaborador x Departamento
+* Um colaborador pertence a um departamento.
+* Um departamento precisa de um colaborador e pode possui vários colaboradores.
+
+
+
+
+3) Identificar os atributos:
+Colaborador:
+* id
+* nome
+* horas_trabalhadas
+
+Horista:
+* id
+* nome
+* valor_hora
+
+Assalariado:
+* id
+* nome
+* salário
+
+Comissionado:
+* id
+* total_vendas
+* percentual_comissão
+
+Departamento:
+* id
+* nome
+
+Projeto:
+* id
+* nome
+
+Gerente:
+* id
+* nome
+
+Dependente:
+* id
+* nome

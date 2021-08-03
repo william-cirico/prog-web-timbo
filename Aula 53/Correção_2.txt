@@ -1,0 +1,41 @@
+1) Identificar as entidades:
+* Cliente
+* Compra (Entidade Associativa)
+* Livro
+* Editora
+
+2) Identificar os relacionamentos:
+Cliente x Livro:
+* Um cliente compra vários livros.
+* Um livro pode ser vendido para vários clientes.
+
+Editora x Livro:
+* Uma editora vende vários livros.
+* Um livro é vendido por uma editora.
+
+
+
+3) Identificar os atributos:
+Cliente:
+* id
+* endereço
+* telefone
+* cpf_cnpj
+* tipo_pessoa
+* pontos
+
+Compra:
+* data
+* valor
+
+Livro:
+* ISBN
+* nome_autor
+* assunto
+* quantidade
+
+Editora:
+* codigo
+* endereço
+* telefone
+* nome_gerente
