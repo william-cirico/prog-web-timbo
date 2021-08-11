@@ -1,0 +1,86 @@
+Utilizando as bibliotecas vistas durante a aula, faça os seguintes exercícios:
+
+1) Crie e exporte a conexão com o banco de dados "livraria" através do arquivo db/index.js.
+Você deve obter as informações de conexão através de um arquivo .env.
+Essa conexão será utilizada nos próximos exercícios.
+
+2) Faça um script que crie as seguintes tabelas no banco de dados:
+
+clientes(id, nome, numero_documento, tipo_pessoa, pontos)
+enderecos(id, rua, numero, cidade, estado, cep, id_cliente)
+livros(isbn, nome_autor, assunto, quantidade_estoque, preco, id_editora)
+compras(id_cliente, id_livro, data, valor)
+editoras(id, nome_gerente, telefone)
+
+3) Crie uma função insereCliente(cliente) que recebe o objeto cliente:
+{
+    numero_documento
+    tipo_pessoa
+    rua,
+    numero,
+    cidade,
+    estado,
+    cep
+}
+
+E insere esse objeto como um registro no banco de dados. 
+(Deve inserir o registro na tabela clientes e na tabela enderecos).
+
+Utilize essa função para criar 1 cliente.
+
+4) Crie uma função insereClientes(clientes) que recebe um vetor de clientes
+e insere esses clientes no banco de dados.
+
+Utilize essa função para criar 4 clientes.
+
+5) Crie uma função insereEditoras(editoras) que recebe um vetor de editoras:
+editora = {
+    nome_gerente,
+    telefone
+}
+e insere essas editoras no banco de dados.
+
+Utilize essa função para criar 5 editoras.
+
+6) Crie uma função insereLivros(livros) que recebe um vetor de livros:
+livro = {
+    isbn,
+    nome_autor,
+    assunto,
+    preco,
+    quantidade_estoque,
+    id_editora
+}
+e insere esses livros no banco de dados.
+
+Utilize essa função para criar 5 livros.
+
+7) Crie uma função obtemLivros(livros) que recebe como parâmetro um vetor com
+identificadores de livros. Essa função deve retornar um vetor com todos os 
+livros presentes no parâmetro.
+
+8) Crie uma função comprar(dados_compra) que recebe um objeto dados_compra
+dados_compra = {
+    id_cliente,
+    livros (vetor com os identificadores dos livros comprados pelo cliente),
+    data (data atual),
+    valor (calculado através do preço dos livros)
+}
+e insere um registro na tabela compras e atualiza os pontos daquele cliente:
+O cliente recebe um ponto a cada 10 reais gastos.
+
+9) Crie uma função comprasPorCliente(id_cliente) que retorna todas as compras 
+efetuadas por um cliente específico.
+
+10) Crie uma função livrosPorEditora(id_editora) que retorna todos os livros 
+fornecidos por uma editora.
+
+11) Crie uma função obtemComprasPorData(data) que retorna todas as compras 
+efetuadas na data informada.
+
+
+
+
+
+
+

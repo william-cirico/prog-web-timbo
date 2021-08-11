@@ -1,0 +1,1 @@
+{"name":"aula-60","version":"1.0.0","main":"node-postgres.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"license":"ISC","dependencies":{"dotenv":"^10.0.0","pg":"^8.7.1","pg-format":"^1.0.4"}}
