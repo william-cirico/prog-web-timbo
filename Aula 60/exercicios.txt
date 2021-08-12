@@ -6,16 +6,25 @@ Essa conexão será utilizada nos próximos exercícios.
 
 2) Faça um script que crie as seguintes tabelas no banco de dados:
 
-clientes(id, nome, numero_documento, tipo_pessoa, pontos)
+clientes(id, nome, email, telefone, numero_documento, tipo_pessoa, pontos)
 enderecos(id, rua, numero, cidade, estado, cep, id_cliente)
 livros(isbn, nome_autor, assunto, quantidade_estoque, preco, id_editora)
 compras(id_cliente, id_livro, data, valor)
 editoras(id, nome_gerente, telefone)
 
+Os identificadores devem ser do tipo UUID e devem ser gerados automaticamente pelo
+banco de dados:
+https://www.postgresql.org/docs/13/functions-uuid.html
+https://node-postgres.com/features/types
+
+
 3) Crie uma função insereCliente(cliente) que recebe o objeto cliente:
 {
-    numero_documento
-    tipo_pessoa
+    nome,
+    email,
+    telefone,
+    numero_documento,
+    tipo_pessoa,
     rua,
     numero,
     cidade,
@@ -30,6 +39,7 @@ Utilize essa função para criar 1 cliente.
 
 4) Crie uma função insereClientes(clientes) que recebe um vetor de clientes
 e insere esses clientes no banco de dados.
+(Deve inserir o registro na tabela clientes e na tabela enderecos).
 
 Utilize essa função para criar 4 clientes.
 
@@ -69,14 +79,23 @@ dados_compra = {
 e insere um registro na tabela compras e atualiza os pontos daquele cliente:
 O cliente recebe um ponto a cada 10 reais gastos.
 
+Utilize Transactions nessa questão:
+https://www.postgresql.org/docs/13/tutorial-transactions.html
+https://node-postgres.com/features/transactions
+
 9) Crie uma função comprasPorCliente(id_cliente) que retorna todas as compras 
-efetuadas por um cliente específico.
+efetuadas por um cliente específico. As compras devem ter o nome do livro, data
+e valor.
 
 10) Crie uma função livrosPorEditora(id_editora) que retorna todos os livros 
 fornecidos por uma editora.
 
 11) Crie uma função obtemComprasPorData(data) que retorna todas as compras 
 efetuadas na data informada.
+
+12) Crie uma função obtemMelhorCliente() que mostra no console o cliente que 
+mais gastou na livraria. Deve ser exibido o nome do cliente, telefone, email
+e as compras do cliente. As compras devem ter o nome do livro, data e valor.
 
 
 
