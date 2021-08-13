@@ -1,6 +1,35 @@
+/*
+4) Crie uma função insereClientes(clientes) que recebe um vetor de clientes
+e insere esses clientes no banco de dados.
+(Deve inserir o registro na tabela clientes e na tabela enderecos).
+
+Utilize essa função para criar 4 clientes.
+*/
+
+// @ts-check
 const format = require("pg-format");
 const db = require("./db");
 
+
+/**
+ * Dados e endereço do cliente
+ * @typedef {Object} Cliente 
+ * @property {string} nome 
+ * @property {string} email
+ * @property {string} telefone
+ * @property {string} numero_documento
+ * @property {string} tipo_pessoa
+ * @property {string} rua
+ * @property {number} numero
+ * @property {string} cidade
+ * @property {string} estado
+ * @property {string} cep
+ */
+
+/**
+ * Insere vários clientes no banco de dados
+ * @param {Array<Cliente>} clientes 
+ */
 async function insereClientes(clientes) {
     // Separando clientes
     const clientesVetor = [],
@@ -35,7 +64,7 @@ async function insereClientes(clientes) {
             RETURNING id;`, clientesVetor));
         
 
-        // Adicionando os endereços
+        // Adicionando os id_usuario
         for (let i = 0; i < enderecosVetor.length; i++) {
             enderecosVetor[i] = [...enderecosVetor[i], rows[i].id];
         }
@@ -56,6 +85,7 @@ async function insereClientes(clientes) {
     }
 }
 
+/** @type Array<Cliente> */
 const clientes = [
     {
         nome: "Marcos",
