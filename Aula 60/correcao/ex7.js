@@ -15,7 +15,7 @@ async function obtemLivros(livros) {
     try {
         const { rows } = await db.query(format(`
             SELECT * FROM livros WHERE isbn IN (%L);
-        `));
+        `, livros));
 
         return rows;
     } catch (error) {
@@ -25,8 +25,9 @@ async function obtemLivros(livros) {
     }
 }
 
-const livros = [
-    {
-        
-    }
-]
+const livros = ["38be435f-97b1-4774-884a-f6a2feed9979", "39be435f-97b1-4774-884a-f6a2feed9979"];
+
+obtemLivros(livros)
+    .then(result => console.log(result));
+
+module.exports = obtemLivros;

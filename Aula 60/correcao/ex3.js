@@ -19,6 +19,7 @@ const db = require("./db");
 /**
  * Dados e endereço do cliente
  * @typedef {Object} Cliente 
+ * @property {string} id
  * @property {string} nome 
  * @property {string} email
  * @property {string} telefone
@@ -37,6 +38,7 @@ const db = require("./db");
  */
 async function insereCliente(cliente) {
     const dadosCliente = [
+        cliente.id,
         cliente.nome, 
         cliente.email, 
         cliente.telefone, 
@@ -57,9 +59,9 @@ async function insereCliente(cliente) {
 
         const {rows} = await db.query(`            
             INSERT INTO 
-                clientes (nome, email, telefone, numero_documento, tipo_pessoa)
+                clientes (id, nome, email, telefone, numero_documento, tipo_pessoa)
             VALUES 
-                ($1, $2, $3, $4, $5)
+                ($1, $2, $3, $4, $5, $6)
             RETURNING id;`, dadosCliente);
         
         await db.query(`
@@ -80,6 +82,7 @@ async function insereCliente(cliente) {
 
 /** @type {Cliente} */
 const cliente = {
+    id: "50be435f-97b1-4774-884a-f6a2feed9979",
     nome: "Pedro",
     email: "pedro@email.com",
     telefone: "(47) 9 8444-3320",
