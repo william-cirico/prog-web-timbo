@@ -1,8 +1,6 @@
 const { Op } = require("sequelize");
-const Usuario = require("./models/Usuario");
-const Endereco = require("./models/Endereco");
 const sequelize = require("./database");
-const Projeto = require("./models/Projeto");
+const { Usuario, Projeto } = sequelize.models;
 
 (async () => {
     try {
