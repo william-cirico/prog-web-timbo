@@ -11,6 +11,10 @@ module.exports = {
         body("senha")            
             .isStrongPassword()
             .withMessage("Senha inválida"),
+        body().custom(body => {
+                const keys = ['nome', 'email', 'senha'];
+                return Object.keys(body).every(key => keys.includes(key));
+        }).withMessage('Parâmetros extras enviados'),
         (req, res, next) => {
             const errors = validationResult(req);
 
@@ -28,6 +32,10 @@ module.exports = {
         body("senha")
             .isStrongPassword()
             .withMessage("Senha inválida"),
+        body().custom(body => {
+            const keys = ['nome', 'senha'];
+            return Object.keys(body).every(key => keys.includes(key));
+        }).withMessage('Parâmetros extras enviados'),
         (req, res, next) => {
             const errors = validationResult(req);
 

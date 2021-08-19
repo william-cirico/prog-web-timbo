@@ -41,7 +41,7 @@ async function removeUsuario(id) {
 
     if (!usuario) throw new createError(404, "Usuário não encontrado!");
 
-    usuario.destroy();
+    await usuario.destroy();
 }
 
 module.exports = {
