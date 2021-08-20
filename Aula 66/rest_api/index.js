@@ -1,5 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
+const helmet = require("helmet");
+const cors = require("cors");
 
 const app = express();
 
@@ -7,10 +9,12 @@ const app = express();
 const usuariosRoutes = require("./routes/usuariosRoutes");
 
 // Definindo a porta
-const porta = 3000;
+const porta = 3333;
 
 // Definindo os middlewares
 app.use(express.json());
+app.use(helmet());
+app.use(cors());
 app.use(morgan("dev"));
 
 // Definindo as rotas

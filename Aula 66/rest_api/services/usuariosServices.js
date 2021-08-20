@@ -1,5 +1,4 @@
 const createError = require("http-errors");
-const { validationResult } = require("express-validator");
 const { Usuario } = require("../db/models");
 
 async function getUsuarios() {    
@@ -33,7 +32,7 @@ async function updateUsuario(id, usuarioAtualizado) {
 
     Object.assign(usuario, usuarioAtualizado);
 
-    usuario.save();
+    await usuario.save();
 }
 
 async function removeUsuario(id) {

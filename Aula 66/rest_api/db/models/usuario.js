@@ -7,7 +7,23 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Usuario extends Model {
-    static associate(models) {}
+    static associate(models) {
+      this.belongsToMany(models.Projeto, {
+        through: "usuarios_projetos",
+        as: {
+          singular: "projeto",
+          plural: "projetos"
+        },
+        foreignKey: {
+          name: "id_usuario",
+          type: DataTypes.UUID
+        }
+      });
+    }
+
+    toJSON() {
+      return { ...this.get(), senha: undefined };
+    }
   };
   Usuario.init({
     id: {
