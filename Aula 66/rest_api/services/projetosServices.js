@@ -35,6 +35,12 @@ async function removeProjetoForUser(id, nomeProjeto) {
 
     if (!usuario) throw createError(404, "Usuário não encontrado!");
     
+    const projeto = await usuario.hasProjeto({ where: { nome: nomeProjeto } });
+
+    if (!projeto) {
+        throw createError(404, "Projeto não encontrado!");
+    }
+
     const  projeto = await Projeto.findOne({
         where: { nome: nomeProjeto }
     });
