@@ -16,7 +16,9 @@ module.exports = (permissions) => {
             
             if (!permissions.includes(payload.role)) {
                 next(createHttpError(403, "You don't have permission"));    
-            }                        
+            }              
+
+            res.locals.userId = payload.sub;
 
             next();
         } catch (error) {
