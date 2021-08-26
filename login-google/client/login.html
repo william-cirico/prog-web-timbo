@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="464923428811-hrcmsi915qksbbr4qp0b7c86ikaskdaf.apps.googleusercontent.com">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login Google</h1>
+    <form>
+        <label for="inputEmail">
+            Email: <br>
+            <input type="email" name="email" id="inputEmail">
+        </label>
+        <br><br>
+        <label for="inputPassword">
+            Senha: <br>
+            <input type="password" name="password" id="inputPassword">
+        </label>
+    </form>
+    <div id="my-signin2"></div>
+    <a href="./register.html">Cadastrar-se</a>
+    <script>
+         function onSignIn(googleUser) {
+            const profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+
+        async function onSuccess(googleUser) {
+            const googleToken = googleUser.getAuthResponse().id_token;
+
+            try {
+                const res = await fetch("http://localhost:3000/auth/login-google", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ googleToken })
+                });
+
+                if (res.ok) {
+                    const { accessToken, refreshToken } = await res.json();
+
+                    localStorage.setItem("access-token", accessToken);
+                    localStorage.setItem("refresh-token", refreshToken);
+
+                    location.replace("./index.html");
+                } else {
+                    alert("Aconteceu algum erro ao fazer o login");
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        function onFailure(error) {
+            console.log(error);
+        }
+        function renderButton() {
+            gapi.signin2.render('my-signin2', {
+                'scope': 'profile email',
+                'width': 240,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+            });
+        }
+    </script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>    
+</body>
+</html>

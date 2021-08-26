@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="464923428811-hrcmsi915qksbbr4qp0b7c86ikaskdaf.apps.googleusercontent.com">
+    <title>Index</title>
+</head>
+<body>
+    <h1>Página Inicial</h1>
+    <img alt="Avatar do usuário" id="avatar">    
+    <p id="name"></p>
+    <p id="email"></p>    
+    <a href="#" onclick="signOut();">Log Out</a>
+    <script>
+        function onLoad() {
+            gapi.load('auth2', function() {
+                gapi.auth2.init();
+            });
+        }
+
+        async function signOut() {
+            const auth2 = gapi.auth2.getAuthInstance();
+            await auth2.signOut();
+            localStorage.clear();
+            location.replace("./login.html");
+        }
+
+        async function refreshToken() {
+            const refreshToken = localStorage.getItem("refresh-token");
+
+            try {
+                const res = await fetch("http://localhost:3000/auth/refresh", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ refreshToken })
+                });
+
+                if (res.ok) {
+                    const { accessToken, refreshToken } = await res.json();
+
+                    localStorage.setItem("access-token", accessToken);
+                    localStorage.setItem("refresh-token", refreshToken);
+                    location.reload();
+                } else {
+                    console.log(res);
+                    // location.replace("./login.html");
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        const userName = document.querySelector("#name");
+        const userEmail = document.querySelector("#email");
+        const userAvatar = document.querySelector("#avatar");
+
+        window.addEventListener("load", async () => {
+            const accessToken = localStorage.getItem("access-token");
+
+            if (!accessToken) location.replace("./login.html");
+
+            try {
+                const res = await fetch("http://localhost:3000/users", {
+                    headers: {
+                        "Authorization": `Bearer ${accessToken}`
+                    }
+                });
+
+                if (res.ok) {
+                    const { name, email, avatar } = await res.json();
+
+                    userName.textContent = name;
+                    userEmail.textContent = email;
+                    userAvatar.src = avatar;
+                } else {
+                    refreshToken();
+                }
+            } catch (error) {
+                console.log(error);                
+            }
+        });
+    </script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+</body>
+</html>
