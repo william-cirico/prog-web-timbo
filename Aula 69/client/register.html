@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <form id="form-register">
+        <input type="text" name="name" placeholder="Digite seu nome"><br><br>
+        <input type="email" name="email" placeholder="Digite seu e-mail"><br><br>
+        <input type="password" name="password" placeholder="Digite sua senha"><br><br>
+        <input type="file" name="avatar"><br><br>
+        <input type="submit" value="Registrar">
+    </form>
+    <script>
+        const form = document.querySelector("#form-register");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            try {
+                const body = new FormData(form);
+
+                const res = await fetch("http://localhost:3000/users", {
+                    method: "POST",
+                    body
+                });
+
+                if (res.ok) {                
+                    alert("Usuário cadastrado com sucesso!");
+                    window.location.href = "./login.html";
+                } else {
+                    alert("Ocorreu um erro ao cadastrar o usuário!");
+                }
+            } catch (error) {   
+                console.log(error);
+            }
+        });
+    </script>
+</body>
+</html>

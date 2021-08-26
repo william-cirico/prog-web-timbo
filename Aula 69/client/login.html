@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="464923428811-hrcmsi915qksbbr4qp0b7c86ikaskdaf.apps.googleusercontent.com">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login Google</h1>
+    <form id="login-form">
+        <input type="email" name="email" id="inputEmail" placeholder="Digite seu e-mail">
+        <input type="password" name="password" id="inputPassword" placeholder="Digite sua senha">
+        <input type="submit" value="Enviar">
+    </form>
+    <a href="./register.html">Cadastrar-se</a>
+    <div id="my-signin2"></div>
+    <script>
+        async function onSuccess(googleUser) {
+            const googleToken = googleUser.getAuthResponse().id_token;
+            console.log(googleToken); 
+            
+            try {
+                const res = await fetch("http://localhost:3000/auth/login-google", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ googleToken })
+                });
+
+                if (res.ok) {
+                    const { accessToken, refreshToken } = await res.json();
+
+                    localStorage.setItem("access-token", accessToken);
+                    localStorage.setItem("refresh-token", refreshToken);
+
+                    location.replace("./index.html");
+                }
+            } catch (error) {
+                console.log(error);
+            }            
+        }
+
+        function onFailure(error) {
+            console.log(error);
+        }
+
+        function renderButton() {
+            gapi.signin2.render('my-signin2', {
+                'scope': 'profile email',
+                'width': 240,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+            });
+        }
+
+        const form = document.querySelector("#login-form");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const body = JSON.stringify({
+                email: form.email.value,
+                password: form.password.value
+            });
+
+            try {
+                const res = await fetch("http://localhost:3000/auth/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body
+                });
+
+                if (res.ok) {
+                    const { accessToken, refreshToken } = await res.json();
+
+                    localStorage.setItem("access-token", accessToken);
+                    localStorage.setItem("refresh-token", refreshToken);
+
+                    location.replace("./index.html");
+                } else {
+                    alert("Usuário ou senha incorretos!");
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        });
+    </script>
+
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
+</html>
