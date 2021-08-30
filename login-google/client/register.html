@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Usuário</title>
+</head>
+<body>
+    <form id="register-form">
+        <label for="inputName">
+            Nome: <br>
+            <input type="text" name="name" id="inputName" required>
+        </label><br><br>
+        <label for="inputEmail">
+            Email: <br>
+            <input type="email" name="email" id="inputEmail" required>
+        </label><br><br>
+        <label for="inputPassword">
+            Senha: <br>
+            <input type="password" name="password" id="inputPassword" required>
+        </label><br><br>
+        <label for="inputAvatar">
+            Sua fotinha: <br>
+            <input type="file" name="avatar" id="inputAvatar" accept="image/png, image/jpeg, image/gif">
+        </label><br><br>
+        <input type="submit" value="Cadastrar Usuário">
+    </form>
+
+    <script>
+        const form = document.querySelector("#register-form");
+
+        form.addEventListener("submit", async e => {
+            e.preventDefault();
+
+            // Requisição POST para /users
+            try {
+                const body = new FormData(form);
+
+                const res = await fetch("http://localhost:3000/users", { 
+                    method: "POST",
+                    body 
+                });
+
+                if (res.ok) {
+                    alert("Usuário cadastrado com sucesso!");
+
+                    location.replace("./login.html");
+                } else {
+                    console.log(res);
+                    alert("Não foi possível cadastrar o usuário");
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        });
+    </script>    
+</body>
+</html>
