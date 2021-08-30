@@ -1,0 +1,24 @@
+.card {
+    background-color: rgb(133, 26, 26);
+    border-radius: 12px;
+    border: 3px solid rgb(133, 26, 26);
+    overflow: hidden;    
+    text-align: center;    
+    display: flex;
+    flex-direction: column;    
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.card .titulo {
+    color: rgb(248, 247, 247);    
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.card .conteudo {
+    flex: 1;
+    padding: 30px;
+    background-color: rgb(241, 241, 241); 
+    color: black;   
+}
