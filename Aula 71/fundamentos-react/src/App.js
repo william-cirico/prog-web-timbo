@@ -12,6 +12,8 @@ import { Relogio } from "./components/Relogio"
 import { ValorAleatorio } from "./components/ValorAleatorio";
 import { ManipulandoEventos } from "./components/ManipulandoEventos";
 import { ComponenteControlado } from "./components/ComponentesControlados";
+import { Calculadora } from "./components/LiftingState/Calculadora";
+import { Contador } from "./components/Contador";
 
 export function App() {
 	return (
@@ -58,6 +60,12 @@ export function App() {
 				</Card>	
 				<Card titulo="Componentes controlados" cor="#3B185F">
 					<ComponenteControlado />
+				</Card>
+				<Card titulo="Elevando o State">
+					<Calculadora />
+				</Card>
+				<Card titulo="State pode ser assíncrono">
+					<Contador inicial={10} />
 				</Card>
 			</div>
 		</>
