@@ -1,0 +1,35 @@
+.menu {
+    background-color: rgb(39, 39, 39);
+    min-width: 200px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin: 0;
+}
+
+.menu a {
+    text-align: center;
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: white;    
+    border-bottom: 1px solid rgb(85, 85, 85);
+    transition: all .3s;
+}
+
+.menu a:hover {    
+    background-color: rgb(167, 167, 167);
+    color: black;
+}
+
+.menu .selected {
+    background-image: url("../../assets/overlay.png");
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
