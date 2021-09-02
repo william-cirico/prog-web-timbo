@@ -1,0 +1,44 @@
+.todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.todo-input {
+    height: 44px;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;    
+    flex: 1;    
+    font-size: 24px;
+}
+.todo-button {
+    width: 44px;
+    height: 44px;
+    border: none;    
+    background-color: #2196F3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: white;
+    transition: background-color .4s;
+}
+
+.todo-button:hover {
+    background-color: rgb(17, 66, 131);
+}
+
+.error {
+    border-color: red;    
+}
+
+.error::placeholder {
+    color: red;    
+}
+
+.error-text {
+    color: red;
+}
