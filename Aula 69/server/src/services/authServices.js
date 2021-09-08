@@ -3,8 +3,7 @@ const { randomBytes } = require("crypto");
 const createHttpError = require("http-errors");
 const jwt = require("jsonwebtoken");
 const ms = require("ms");
-const { User, RefreshToken } = require("../models");
-const { Console } = require('console');
+const { User, RefreshToken } = require("../models"); 
 
 async function createRefreshToken(sub) {
     // Definindo o tempo de expiração
