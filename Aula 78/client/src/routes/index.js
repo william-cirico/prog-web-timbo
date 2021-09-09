@@ -22,7 +22,7 @@ export function Routes() {
                     </Route>                 
                     <Route path="/login" component={Login} /> 
                     <PrivateRoute path="/products/:id" component={Products} />            
-                    <PrivateRoute path="/dashboard" component={Dashboard} />                                            
+                    <PrivateRoute path="/dashboard" component={Dashboard} permissions={["student", "admin", "teacher"]} />                                            
                     <Route path="*" component={NotFound} />                                            
                 </Switch>          
             </Router>

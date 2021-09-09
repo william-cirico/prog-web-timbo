@@ -12,6 +12,23 @@ function login(email, password) {
     });
 }
 
-export default {
-    login
+function verifyToken(accessToken) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (accessToken === ACCESS_TOKEN) {
+                resolve();
+            }
+            reject(new Error("Invalid token"));
+        }, 1000);
+    })
+}
+
+function refresh(refreshToken) {
+    return
+}
+
+export const authServices = {
+    login,
+    verifyToken,
+    refresh
 }

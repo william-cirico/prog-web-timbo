@@ -1,19 +1,23 @@
-import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import { AdminDashboard } from "../../components/AdminDashboard";
+import { StudentDashboard } from "../../components/StudentsDashboard";
+import { TeacherDashboard } from "../../components/TeacherDashboard";
 import { useAuth } from "../../hooks/useAuth";
 
 export function Dashboard() {
-    const { signOut } = useAuth();
-    const history = useHistory();
+    const { role } = useAuth();    
 
-    function handleClick() {
-        signOut();
-        history.push("/");
+    if (role === "teacher") {      
+      return <TeacherDashboard />      
+    }
+
+    if (role === "student") {
+      return <StudentDashboard />
+    }
+
+    if (role === "admin") {
+      return <AdminDashboard />
     }
   
-    return (
-      <>
-        <h1>Dashboard</h1>
-        <button onClick={handleClick}>SignOut</button>
-      </>
-    )
+    return <Redirect to="/login" />
   }
