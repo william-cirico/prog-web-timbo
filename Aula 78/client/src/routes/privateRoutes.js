@@ -9,13 +9,15 @@ export function PrivateRoute({ component: Component, permissions, ...rest }) {
       <Route
         {...rest}
         render={() => {
-          const routeRoles = permissions || ["teacher", "admin", "student"];
+          if (!permissions?.includes(role)) {
+            return <Redirect to="/unauthorized" />
+          }
 
-          if (accessToken && routeRoles.includes(role)) {
-            return <Component {...rest} />
+          if (!accessToken) {
+            return <Redirect to="/login" />
           }
           
-          return <Redirect to="/login" />
+          return <Component {...rest} />          
         }}
       />
     );

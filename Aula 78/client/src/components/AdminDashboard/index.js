@@ -1,11 +1,12 @@
-import { ContainerDashboard } from "../ContainerDashboard";
+import { DashboardContainer } from "../DashboardContainer";
+import "./styles.css";
 
 export function AdminDashboard() {
     return (
-        <ContainerDashboard title="Dashboard Admin">
-            <button>Cadastrar turma</button>
+        <DashboardContainer title="Dashboard Admin">
+            <button>Cadastrar turma</button>           
             <button>Cadastrar professor</button>
             <button>Cadastrar aluno</button>
-        </ContainerDashboard>
+        </DashboardContainer>
     );
 }

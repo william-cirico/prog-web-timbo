@@ -22,7 +22,8 @@ export function Login() {
         } catch (err) {
             setIsLoading(false);            
             setError(err.message);
-        }        
+        }
+        
     }
 
     return (

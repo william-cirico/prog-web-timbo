@@ -1,45 +1,46 @@
 import { createContext, useEffect, useState } from "react";
-import { authServices } from "../services/authServices";
-import jwtDecode from "jwt-decode";
+import authServices from "../services/authServices";
 
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
     const [accessToken, setAccessToken] = useState(localStorage.getItem("access-token")); 
     const [role, setRole] = useState(() => {
-        const { role } = jwtDecode(accessToken);
-        return role;
+        if (!accessToken) {
+            return null;
+        }
+
+        return authServices.getRoleFromAccessToken(accessToken);
     });
 
-    async function signIn(email, password) {
-        const { accessToken } = await authServices.login(email, password);        
-
-        const { role } = jwtDecode(accessToken);
-        setRole(role);
-
-        localStorage.setItem("access-token", accessToken);
-        
-        setAccessToken(accessToken);
-    }
-
-    function signOut() {
-        setAccessToken(null);
-        localStorage.clear();
-    }
-    
-    useEffect(() => {
-        console.log("Verificou o access-token");
+    useEffect(() => {        
         async function verifyToken() {
             try {
-                await authServices.verifyToken(accessToken);
+                await authServices.verifyToken(accessToken);                
             } catch (error) {
                 setAccessToken(null);
-                setRole(null);
-            }            
+                setRole(null)
+            }
         }
 
         verifyToken();
-    }, [accessToken]);
+    });
+
+    async function signIn(email, password) {
+        const { accessToken, refreshToken } = await authServices.login(email, password);
+
+        localStorage.setItem("access-token", accessToken);
+        localStorage.setItem("refresh-token", refreshToken);
+        
+        setAccessToken(accessToken);
+        setRole(authServices.getRoleFromAccessToken(accessToken));
+    }    
+
+    function signOut() {
+        setAccessToken(null);
+        setRole(null);
+        localStorage.clear();
+    }
 
     return (
         <AuthContext.Provider value={{ accessToken, role, signIn, signOut }}>
