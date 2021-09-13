@@ -1,20 +1,20 @@
-import { AdminDashboard } from "../../components/AdminDashboard";
-import { StudentDashboard } from "../../components/StudentDashboard";
-import { TeacherDashboard } from "../../components/TeacherDashboard";
-import { useAuth } from "../../hooks/useAuth";
+import { AdminsDashboard } from "../../components/AdminDashboard";
+import { StudentsDashboard } from "../../components/StudentsDashboard";
+import { TeachersDashboard } from "../../components/TeachersDashboard";
+import { NotFound } from "../NotFound";
 
-export function Dashboard() {
-  const { role } = useAuth();
-
-  if (role === "student") {
-    return <StudentDashboard />
+export function Dashboard({ userRole }) {  
+  if (userRole === "student") {
+    return <StudentsDashboard />
   }
 
-  if (role === "teacher") {
-    return <TeacherDashboard />
+  if (userRole === "teacher") {
+    return <TeachersDashboard />
   }
 
-  if (role === "admin") {
-    return <AdminDashboard />
+  if (userRole === "admin") {
+    return <AdminsDashboard />
   }  
+
+  return <NotFound />
 } 

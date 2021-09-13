@@ -1,3 +1,68 @@
-.active {
-    background-color: red;
+.table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;    
+    width: 100%;    
+    margin: 10px 0;
+}
+
+.table td, .table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table tr:nth-child(even){background-color: #f2f2f2;}
+
+.table tr:hover {background-color: #ddd;}
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(58, 58, 58);
+    color: white;
+}
+
+.button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: rgb(7, 7, 7);
+    border: none;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.pointer-td td {
+    cursor: pointer;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form input, .form textarea, .form select {    
+    padding: 10px 5px;
+}
+
+.form textarea {
+    height: 100px;
+    resize: none;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    background-color: rgb(75, 129, 20);
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
 }

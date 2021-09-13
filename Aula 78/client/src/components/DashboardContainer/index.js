@@ -1,20 +1,20 @@
-import { useHistory } from "react-router-dom";
-import { useAuth } from "../../hooks/useAuth";
+import "./styles.css";
 
 export function DashboardContainer({title, children}) {
-    const { signOut } = useAuth();
-    const history = useHistory();
-
-    function handleClick() {
-        signOut();
-        history.push("/");
-    }
+	function handleSignOut() {
+		localStorage.clear();
+		window.location.replace("/");
+	}
 
     return (
-      <>
-        <h1>{title}</h1>
-        <button onClick={handleClick}>SignOut</button>
-        {children}
-      </>
+      <div className="dashboard-container">
+        <header className="dashboard-header">
+          <h1>{title}</h1>
+          <button onClick={handleSignOut}>Sign Out</button>       
+        </header>
+        <div className="dashboard-content">
+          {children}
+        </div>
+      </div>
     )
 }

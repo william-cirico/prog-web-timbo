@@ -1,63 +1,72 @@
 import jwtDecode from "jwt-decode";
+import { api } from "./api";
 
-const ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE1MTYyMzkwMjJ9.0vrXzaPDApVSrC4cKj96uX1-gQ5Vs6k0daV0iegWpcU";
-const REFRESH_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9";
+function saveTokens(accessToken, refreshToken) {
+    localStorage.setItem("access-token", accessToken);
+    localStorage.setItem("refresh-token", refreshToken);
+}
+
+function getAccessToken() {
+    return localStorage.getItem("access-token");
+}
+
+function getRefreshToken() {
+    return localStorage.getItem("refresh-token");
+}
 
 function getRoleFromAccessToken(accessToken) {
-    const { role } = jwtDecode(accessToken);
+    try {
+        const { role } = jwtDecode(accessToken);
 
-    return role;
+        return role;
+    } catch (err) {
+        console.log(err);
+        return;
+    }
 }
 
-function login(email, password) {
-    return new Promise((resolve, reject) => {        
-        setTimeout(() => {
-            if (email === "a@a" && password === "123")  {
-                resolve({ 
-                    accessToken: ACCESS_TOKEN,
-                    refreshToken: REFRESH_TOKEN
-                });
-            } else {
-                reject(new Error("E-mail ou senha inválidos"));
-            }
-        }, 3000);
-    });
+async function getUser(accessToken) {
+    try {        
+        const user = await api.get("/users", { headers: { "Authorization": `Bearer ${accessToken}` }});
+
+        return user;
+    } catch (err) {
+        console.log(err);
+        return;
+    }
 }
 
-function verifyToken(accessToken) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (accessToken !== ACCESS_TOKEN) {
-                reject(new Error("Invalid access-token"));
-            }
-
-            console.log("Token válido");
-            resolve();
-        }, 100);
-    });
+async function signIn(email, password) {
+    try {
+        const res = await api.post("/auth/login", { email, password });
+        
+        saveTokens(res.data.accessToken, res.data.refreshToken);        
+        
+    } catch (err) {
+        console.log(err);
+        throw new Error("Usuário ou senha inválidos");
+    }
 }
 
-function refreshToken(refreshToken) {
-    console.log(refreshToken);
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (refreshToken !== REFRESH_TOKEN) {
-                reject(new Error("Refresh Token invalid!"));
-            } else {
-                resolve({
-                    newAccessToken: ACCESS_TOKEN,
-                    newRefreshToken: REFRESH_TOKEN
-                });
-            }
-        }, 100);
-    });
+async function refreshToken() {
+    const refresh_token = getRefreshToken();
+    try {
+        const { newAccessToken, newRefreshToken } = await api.post("/auth/refreshToken", { refresh_token });
+
+        saveTokens(newAccessToken, newRefreshToken);        
+    } catch (err) {
+        localStorage.clear();
+        window.location.replace("/");
+    }
 }
 
 const authServices = {
-    login,
+    getAccessToken,
+    getRefreshToken,
     getRoleFromAccessToken,
-    verifyToken,
-    refreshToken
+    getUser,
+    refreshToken,
+    signIn
 }
 
 export default authServices;

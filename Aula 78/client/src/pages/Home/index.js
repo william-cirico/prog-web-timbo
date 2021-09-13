@@ -1,24 +1,12 @@
-import { useState } from "react";
-import { Redirect, useHistory } from "react-router-dom";
-import { useAuth } from "../../hooks/useAuth";
-
+import { Login } from "../../components/Login";
+import "./styles.css";
 
 export function Home(props) {
-    const { accessToken } = useAuth();
-    const history = useHistory();
-        
-    if (accessToken) {
-        return <Redirect to="/dashboard" />        
-    }
 
-
-
-
-    return (
-      <>        
-        <h1>Home</h1>
-        <p>{props.text}</p>     
-        <button onClick={() => history.push("/login")}>Logar</button>  
-      </>
-    );  
+  return (
+    <div className="container-home">        
+        <h1 className="home-title">Sistema Gerenciador de Alunos</h1>        
+      <Login />                                   
+    </div>
+  );  
 }

@@ -7,6 +7,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  height: 2px;  
+}
+
+button {  
+  transition: filter .3s;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: opacity(70%);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

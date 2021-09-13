@@ -1,0 +1,45 @@
+.container-login {
+    flex: 1;
+    align-self: stretch;
+    background-color: rgba(58, 58, 58, 0.74);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;    
+    padding: 0 30px;
+    color: white;
+}
+
+.container-login h2 {
+    text-align: center;
+    font-size: 44px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form input {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+.login-form input:focus {
+    outline: none;
+}
+
+.login-form button {
+    padding: 20px;
+    background-color: rgb(7, 7, 7);
+    border: none;
+    color: white;
+    border-radius: 4px;
+    font-size: 22px;    
+}
