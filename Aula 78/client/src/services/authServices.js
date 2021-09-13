@@ -51,8 +51,12 @@ async function signIn(email, password) {
 async function refreshToken() {
     const refresh_token = getRefreshToken();
     try {
-        const { newAccessToken, newRefreshToken } = await api.post("/auth/refreshToken", { refresh_token });
+        const res = await api.post("/auth/refreshToken", { refreshToken: refresh_token });
 
+        const newAccessToken = res.data.accessToken;
+        const newRefreshToken = res.data.refreshToken;
+        console.log(newAccessToken, newRefreshToken);
+        debugger;
         saveTokens(newAccessToken, newRefreshToken);        
     } catch (err) {
         localStorage.clear();

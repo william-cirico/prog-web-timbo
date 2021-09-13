@@ -16,14 +16,18 @@ api.interceptors.request.use(config => {
 
 api.interceptors.response.use(function (response) {
     return response;
-  }, async function (error) {    
+  }, async function (error) {
     const originalRequest = error.config;
-    if (error.response.status === 401 && !originalRequest._retry) {
-        originalRequest._retry = true;        
-        console.log("refresh do token");                        
-        await authServices.refreshToken();     
-        return api(originalRequest);                           
+    const loginUrl = `${process.env.REACT_APP_API_URL}/auth/login`;
+    const refreshTokenUrl = "/auth/refreshToken";
+    console.log(error.response.status);
+    console.log(originalRequest.url);
+    console.log(error.request.responseURL);
+    console.log(error.response.status === 401 && originalRequest.url !== refreshTokenUrl && error.request.responseURL !== loginUrl);
+    debugger
+    if (error.response.status === 401 && originalRequest.url !== refreshTokenUrl && error.request.responseURL !== loginUrl) {      
+      await authServices.refreshToken();      
+      return api(originalRequest);
     }
-
     return Promise.reject(error);
-  });
+});

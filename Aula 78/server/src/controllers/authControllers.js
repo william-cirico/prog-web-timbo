@@ -88,13 +88,13 @@ async function refresh(req, res, next) {
     
         if (!validRefreshToken) {
             throw new createHttpError(401, "Invalid refresh-token");
-        }
+        }        
 
         if (validRefreshToken.expiresIn < Date.now()) {
             throw new createHttpError(401, "Expirated refresh-token")
-        }
+        }        
     
-        const accessToken = createAccessToken(validRefreshToken.user.id);
+        const accessToken = createAccessToken(validRefreshToken.user.id, validRefreshToken.user.role);
         const newRefreshToken = await createRefreshToken(validRefreshToken.user.id);
         
         res.json({ accessToken, refreshToken: newRefreshToken });
