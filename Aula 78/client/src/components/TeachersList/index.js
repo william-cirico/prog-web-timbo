@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 import { api, cancelTokenSource } from "../../services/api";
 
-export function StudentsList({ classId }) {
-    const [students, setStudents] = useState([
-        { id: 1, name: "william", email: "contato.williamc@gmail.com", phone: "(47) 9 8408-8520" }
-    ]);
+export function TeachersList() {
+    const [teachers, setTeachers] = useState(null);
 
     useEffect(() => {
         (async () => {
             try {
-                const res = await api.get("/students", { cancelToken: cancelTokenSource.token }); 
-            
-                setStudents(res.data);
+                const res = await api.get("/teachers", { cancelToken: cancelTokenSource.token }); 
+                console.log(res);
+                setTeachers(res.data);
             } catch (err) {
                 console.log(err);
             }            
@@ -22,9 +20,9 @@ export function StudentsList({ classId }) {
 
     return (
         <>
-            <h2>Alunos</h2>
+            <h2>Professores</h2>
             { 
-                students 
+                teachers
                 ? <table className="table">
                     <thead>
                         <tr>
@@ -35,19 +33,18 @@ export function StudentsList({ classId }) {
                     </thead>
                     <tbody>
                         {
-                            students.map(student => (
-                                <tr key={student.id}>
-                                    <td>{student.name}</td>
-                                    <td>{student.email}</td>
-                                    <td>{student.phone}</td>                                    
+                            teachers.map(teacher => (
+                                <tr key={teacher.id}>
+                                    <td>{teacher.name}</td>
+                                    <td>{teacher.email}</td>
+                                    <td>{teacher.phone}</td>                                    
                                 </tr>
                             ))                
                         }
                     </tbody>
-            </table>
-            : <p>Não existe nenhum aluno cadastrado nessa matéria</p>
-            }
-            
+                </table>
+                : <p>Não existe nenhum professor</p>
+            }            
         </>
     );
 }

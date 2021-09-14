@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { api } from "../../services/api";
+import InputMask from "react-input-mask";
 
 export function UserRegister({title, url}) {
     console.log(url);
@@ -44,7 +45,7 @@ export function UserRegister({title, url}) {
                 </label>
                 <label>
                     Telefone
-                    <input type="tel" required value={phone} onChange={e => setPhone(e.target.value)} />
+                    <InputMask mask="(99) 9 9999-9999" type="tel" required value={phone} onChange={e => setPhone(e.target.value)} />
                 </label>
                 <button className="button">Cadastrar</button>
             </form>

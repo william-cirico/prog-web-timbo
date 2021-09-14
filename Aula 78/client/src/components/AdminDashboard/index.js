@@ -1,18 +1,24 @@
 import "./styles.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DashboardContainer } from "../DashboardContainer";
 import { Modal } from "../Modal";
 import { UserRegister } from "../UserRegister";
 import { ClassesRegister } from "../ClassesRegister";
+import { StudentsList } from "../StudentsList";
+import { TeachersList } from "../TeachersList";
 
 export function AdminsDashboard() {
     const [showClassRegister, setShowClassRegister] = useState(false);
     const [showTeacherRegister, setShowTeacherRegister] = useState(false);
-    const [showStudentRegister, setShowStudentRegister] = useState(false);    
+    const [showStudentRegister, setShowStudentRegister] = useState(false);
+
+    
 
     return (
         <DashboardContainer title="Dashboard Admin">
-            <div className="admin-container">
+            <div className="admin-container">                
+                <StudentsList /> 
+                <TeachersList />               
                 { showClassRegister && 
                     <Modal onClose={() => setShowClassRegister(false)}>            
                         <ClassesRegister />

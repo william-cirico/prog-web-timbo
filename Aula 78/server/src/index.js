@@ -14,6 +14,7 @@ app.use("/auth", require("./routes/authRoutes"));
 app.use("/users", require("./routes/usersRoutes"));
 app.use("/classes", require("./routes/classesRoutes"));
 app.use("/teachers", require("./routes/teachersRoutes"));
+app.use("/students", require("./routes/studentsRoutes"));
 
 // Middleware de tratamento de erros
 app.use(require("./middlewares/errorMiddleware"));

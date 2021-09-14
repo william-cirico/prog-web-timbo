@@ -66,25 +66,4 @@
     padding: 10px;
     border-radius: 4px;
 }
-
-body {
-    display: flex;
-    justify-content: center;
-  }
-  
-  input,
-  button {
-    line-height: 1.5rem;
-    font-size: 1rem;
-  }
-  
-  input {
-    display: block;
-  }
-  
-  button {
-    margin: 0.5rem;
-    padding: 0 1rem;
-    font-weight: bold;
-  }
   
