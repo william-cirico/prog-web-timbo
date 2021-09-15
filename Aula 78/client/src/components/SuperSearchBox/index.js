@@ -5,20 +5,13 @@ import { FaPlus } from "react-icons/fa";
 export function SuperSearchbox({ users, addUser }) {
     const [text, setText] = useState("");
     const [filteredUsers, setFilteredUsers] = useState([]);
-     
-    //   const filterList = (e) => {
-    //     const updatedList = sourceusers.filter((user) => {
-    //       return (
-    //         item.continent.toLowerCase().search(e.target.value.toLowerCase()) !== -1
-    //       );
-    //     });
-    //     setFilterusers(updatedList);
-    //   };
-    useEffect(() => {
+       
+    useEffect(() => {       
+        const textToLowerCase = text.toLowerCase(); 
         const filteredList = users.filter(user => {                       
             if (text) {
-                return user.name.toLowerCase().includes(text) ||
-                    user.email.toLowerCase().includes(text);
+                return user.name.toLowerCase().includes(textToLowerCase) ||
+                    user.email.toLowerCase().includes(textToLowerCase);
             }
             return false;            
         });

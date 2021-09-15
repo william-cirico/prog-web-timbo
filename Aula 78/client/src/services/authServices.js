@@ -54,9 +54,7 @@ async function refreshToken() {
         const res = await api.post("/auth/refreshToken", { refreshToken: refresh_token });
 
         const newAccessToken = res.data.accessToken;
-        const newRefreshToken = res.data.refreshToken;
-        console.log(newAccessToken, newRefreshToken);
-        debugger;
+        const newRefreshToken = res.data.refreshToken;        
         saveTokens(newAccessToken, newRefreshToken);        
     } catch (err) {
         localStorage.clear();

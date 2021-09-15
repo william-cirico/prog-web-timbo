@@ -77,7 +77,10 @@ export function ClassesRegister() {
                 <label>
                     Adicionar alunos
                     <SuperSearchbox 
-                        users={[ { id: 1, name: "William Círico", email: "contato.williamc@gmail.com" } ]}
+                        users={[ 
+                            { id: 1, name: "William Círico", email: "contato.williamc@gmail.com" }, 
+                            { id: 2, name: "Matheus", email: "matheus.c@gmail.com" },
+                        ]}
                         addUser={addStudentToClass}    
                     />
                 </label>
