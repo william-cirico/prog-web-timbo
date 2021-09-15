@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+
+.App {
+  text-align: center;
+  width: 60%;
+  margin: auto;  
+  background-color: white;
+  padding: 30px;
+}
+
+.app-title {
+  color: #2e2e2d;
+  text-transform: uppercase;
+  letter-spacing: 3px;  
+}

@@ -49,6 +49,7 @@
 
 .form input, .form textarea, .form select {    
     padding: 10px 5px;
+    font-size: 18px;
 }
 
 .form textarea {
@@ -60,7 +61,14 @@
     color: red;
 }
 
-.success {
+.alert-error {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.alert-success {
     background-color: rgb(75, 129, 20);
     color: white;
     padding: 10px;

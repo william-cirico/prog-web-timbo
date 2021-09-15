@@ -1,20 +1,28 @@
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import authServices from "../../services/authServices";
+import { StudentsList } from "../StudentsList";
+import { SuperSearchbox } from "../SuperSearchBox";
 
-export function ClassesRegister({handleSubmit}) {
+export function ClassesRegister() {
     const [name, setName] = useState("");
     const [year, setYear] = useState("");
     const [teacherId, setTeacherId] = useState("");
     const [success, setSuccess] = useState(false);
 
     const [teachers, setTeachers] = useState([]);
+    const [selectedStudents, setSelectedStudents] = useState([]);
+    const [students, setStudents] = useState([]);
+
+    useEffect(() => {
+        
+    }, []);
 
     useEffect(() => {
         (async () => {
-            const res = await api.get("/teachers");
+            const res = await api.get("/students");
 
-            setTeachers(res.data);
+            setStudents(res.data)
         })();
     }, []);
 
@@ -30,6 +38,17 @@ export function ClassesRegister({handleSubmit}) {
             console.log(err)
         }
     }
+
+    function addStudentToClass(student) {  
+        const studentAlreadyExists = selectedStudents.find(selectedStudent => (
+            selectedStudent.id === student.id
+        ));
+        
+        if (!studentAlreadyExists) {
+            setSelectedStudents([...selectedStudents, student])
+        }        
+    }
+
     
     return (
         <>
@@ -55,6 +74,16 @@ export function ClassesRegister({handleSubmit}) {
                         }
                     </select>
                 </label>
+                <label>
+                    Adicionar alunos
+                    <SuperSearchbox 
+                        users={[ { id: 1, name: "William Círico", email: "contato.williamc@gmail.com" } ]}
+                        addUser={addStudentToClass}    
+                    />
+                </label>
+                { selectedStudents && 
+                    <StudentsList students={selectedStudents} />
+                }
                 <button className="button">Cadastrar turma</button>
             </form>        
         </>

@@ -1,30 +1,9 @@
-import { useEffect, useState } from "react";
-import { api, cancelTokenSource } from "../../services/api";
-
-export function StudentsList({ classId }) {
-    const [students, setStudents] = useState([
-        { id: 1, name: "william", email: "contato.williamc@gmail.com", phone: "(47) 9 8408-8520" }
-    ]);
-
-    useEffect(() => {
-        (async () => {
-            try {
-                const res = await api.get("/students", { cancelToken: cancelTokenSource.token }); 
-            
-                setStudents(res.data);
-            } catch (err) {
-                console.log(err);
-            }            
-        })();
-
-        return () => cancelTokenSource.cancel();
-    });
-
+export function StudentsList({ students }) {    
     return (
         <>
             <h2>Alunos</h2>
             { 
-                students 
+                students.length
                 ? <table className="table">
                     <thead>
                         <tr>
@@ -45,9 +24,13 @@ export function StudentsList({ classId }) {
                         }
                     </tbody>
             </table>
-            : <p>Não existe nenhum aluno cadastrado nessa matéria</p>
+            : <p>Não existe nenhum aluno cadastrado</p>
             }
             
         </>
     );
+}
+
+StudentsList.defaultProps = {
+    students: []
 }

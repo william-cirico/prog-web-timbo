@@ -18,6 +18,7 @@ async function createStudent(req, res, next) {
         res.status(201).json(user);
     } catch (err) {
         console.log(err);
+        next(err);
     }
 }
 

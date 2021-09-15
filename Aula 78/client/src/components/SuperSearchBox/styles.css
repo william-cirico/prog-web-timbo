@@ -1,0 +1,30 @@
+.search-box label {
+    margin: 0;
+}
+
+.filtered-data {
+    box-sizing: border-box;    
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgb(126, 126, 126);
+    border-top: none
+}
+
+.filtered-data p {
+    margin: 0;
+}
+
+.filtered-data__name {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.filtered-data__email {
+    font-weight: 300;
+}
+
+.filtered-data__button {        
+    margin: 0;
+}

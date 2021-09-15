@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { api, cancelTokenSource } from "../../services/api";
 
-export function TeachersList() {
+export function TeachersEditList() {
     const [teachers, setTeachers] = useState(null);
 
     useEffect(() => {
@@ -29,6 +29,7 @@ export function TeachersList() {
                             <th>Nome</th>
                             <th>Email</th>                    
                             <th>Telefone</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,6 +39,7 @@ export function TeachersList() {
                                     <td>{teacher.name}</td>
                                     <td>{teacher.email}</td>
                                     <td>{teacher.phone}</td>                                    
+                                    <td><button className="button">Editar</button></td>
                                 </tr>
                             ))                
                         }

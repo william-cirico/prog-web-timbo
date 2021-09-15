@@ -15,6 +15,7 @@ h2::after {
   content: "";
   display: block;
   height: 2px;  
+  background-color: black;
 }
 
 button {  

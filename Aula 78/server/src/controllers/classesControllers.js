@@ -3,7 +3,8 @@ const { Op } = require("sequelize");
 const createHttpError = require("http-errors");
 
 async function createClass(req, res, next) {    
-    const { name, year, teacherId } = req.body;
+    const { name, year, teacherId, studentsIds } = req.body;
+
     try {
         const teacher = await User.findOne({ 
             where: { 
@@ -13,9 +14,17 @@ async function createClass(req, res, next) {
 
         if (!teacher) {
             throw new createHttpError(404, "Teacher not found");
-        }
+        }        
 
-        const newClass = await Class.create({ name, year, teacher_id: teacherId });
+        const students = await User.findAll({ 
+            where: { 
+                [Op.and]: [{id: studentsIds}, { role: "student"} ]
+            }
+        });              
+
+        const newClass = await Class.create({ name, year, teacher_id: teacherId }); 
+        console.log(newClass);       
+        await newClass.addStudents(students);
 
         res.status(201).json(newClass);
     } catch (error) {
@@ -24,16 +33,18 @@ async function createClass(req, res, next) {
     }    
 }
 
-async function removeClass(req, res, next) {
+async function getAllClasses(req, res, next) {
     try {
-        
+        const classes = await Class.findAll();
+
+        res.json(classes);
     } catch (error) {
         console.log(error);
         next(error);
-    }    
+    }
 }
 
 module.exports = {
     createClass,
-    removeClass
+    getAllClasses
 };

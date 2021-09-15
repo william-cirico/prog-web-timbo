@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.hasOne(models.RefreshToken, { foreignKey: "user_id" });
       this.hasOne(models.Class, { foreignKey: "teacher_id" });
-      this.belongsToMany(models.Class, { through: "users_classes", as: "classes" });
-      this.belongsToMany(models.Test, { through: "users_tests", as: "tests" });
+      this.belongsToMany(models.Class, { through: "students_classes", as: "classes" });
+      this.belongsToMany(models.Test, { through: "students_tests", as: "tests" });
     }
 
     isPasswordValid(password) {
