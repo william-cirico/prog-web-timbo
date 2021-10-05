@@ -1,0 +1,23 @@
+.container-login {
+    border: 1px solid black;
+    border-radius: 4px;    
+}
+
+.form-login {
+    min-width: 300px;    
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.form-login input {
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.form-login button {
+    background-color: #474747;
+    padding: 10px;
+    border: none;
+    color: white;
+}

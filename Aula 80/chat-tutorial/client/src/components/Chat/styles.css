@@ -1,0 +1,30 @@
+.chat-item {
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.chat-item:hover {
+    cursor: pointer;
+    background-color: #ccc;
+}
+
+.chat-item__user {
+    flex: 1;
+    padding-left: 10px;
+}
+
+.chat-item__user p {
+    font-size: 12px;
+}
+
+
+.chat-item h2 {
+    font-size: 16px;
+}
+
+.chat-item__date {
+    font-size: 12px;
+}
