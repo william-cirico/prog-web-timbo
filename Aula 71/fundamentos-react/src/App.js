@@ -14,60 +14,67 @@ import { ManipulandoEventos } from "./components/ManipulandoEventos";
 import { ComponenteControlado } from "./components/ComponentesControlados";
 import { Calculadora } from "./components/LiftingState/Calculadora";
 import { Contador } from "./components/Contador";
+import { isMobile, isBrowser } from "react-device-detect";
 
 export function App() {
-	return (
-		<>
-			<h1>Fundamentos React</h1>
-			<div className="cards">
-				<Card titulo="Olá mundo" cor="#F24464">
-					Olá Mundo
-					<h2>Olá mundo JSX</h2>
-				</Card>									
-				<Card titulo="Primeiro componente" cor="#424255">
-					<Primeiro />
-				</Card>						
-				<Card titulo="Segundo componente" cor="#37A6A6">
-					<ComProps titulo="Componente com Props" subtitulo=":D" />  
-				</Card>
-				<Card titulo="Terceiro componente" cor="#D39E4C">
-					<Aluno aluno="Pedro" media={9.5} /> 
-					<Aluno aluno="Mateus" media={8} />
-				</Card>	
-				<Card cor="#1C7FA6">
-					<Familia sobrenome="da Silva">
-						<MembroFamilia nome="João" />
-						<MembroFamilia nome="Pedro" />
-						<MembroFamilia nome="José" />
-					</Familia>
-				</Card>		
-				<Card cor="#2f52e0">
-					<ListaAlunos />
-				</Card>	
-				<Card titulo="Renderização condicional" cor="#ff715b">
-					<ParOuImpar numero={8} />
-					<ParOuImpar numero={5} />
-					<hr />
-					<Notificacoes mensagensNaoLidas={["mensagem 01", "mensagem 02"]}/>
-				</Card>	
-				<Card cor="#A12568" titulo="Manipulando Eventos">
-					<ManipulandoEventos />
-				</Card>
-				<Card titulo="Estado" cor="#f9cb40">
-					<Relogio />
-					<hr />
-					<ValorAleatorio />
-				</Card>	
-				<Card titulo="Componentes controlados" cor="#3B185F">
-					<ComponenteControlado />
-				</Card>
-				<Card titulo="Elevando o State">
-					<Calculadora />
-				</Card>
-				<Card titulo="State pode ser assíncrono">
-					<Contador inicial={10} />
-				</Card>
-			</div>
-		</>
-	);
+	if (isMobile) {
+		return <div>Mobile</div>
+	}
+
+	if (isBrowser) {
+		return (
+			<>
+				<h1>Fundamentos React</h1>
+				<div className="cards">
+					<Card titulo="Olá mundo" cor="#F24464">
+						Olá Mundo
+						<h2>Olá mundo JSX</h2>
+					</Card>									
+					<Card titulo="Primeiro componente" cor="#424255">
+						<Primeiro />
+					</Card>						
+					<Card titulo="Segundo componente" cor="#37A6A6">
+						<ComProps titulo="Componente com Props" subtitulo=":D" />  
+					</Card>
+					<Card titulo="Terceiro componente" cor="#D39E4C">
+						<Aluno aluno="Pedro" media={9.5} /> 
+						<Aluno aluno="Mateus" media={8} />
+					</Card>	
+					<Card cor="#1C7FA6">
+						<Familia sobrenome="da Silva">
+							<MembroFamilia nome="João" />
+							<MembroFamilia nome="Pedro" />
+							<MembroFamilia nome="José" />
+						</Familia>
+					</Card>		
+					<Card cor="#2f52e0">
+						<ListaAlunos />
+					</Card>	
+					<Card titulo="Renderização condicional" cor="#ff715b">
+						<ParOuImpar numero={8} />
+						<ParOuImpar numero={5} />
+						<hr />
+						<Notificacoes mensagensNaoLidas={["mensagem 01", "mensagem 02"]}/>
+					</Card>	
+					<Card cor="#A12568" titulo="Manipulando Eventos">
+						<ManipulandoEventos />
+					</Card>
+					<Card titulo="Estado" cor="#f9cb40">
+						<Relogio />
+						<hr />
+						<ValorAleatorio />
+					</Card>	
+					<Card titulo="Componentes controlados" cor="#3B185F">
+						<ComponenteControlado />
+					</Card>
+					<Card titulo="Elevando o State">
+						<Calculadora />
+					</Card>
+					<Card titulo="State pode ser assíncrono">
+						<Contador inicial={10} />
+					</Card>
+				</div>
+			</>
+		);
+	}
 }
