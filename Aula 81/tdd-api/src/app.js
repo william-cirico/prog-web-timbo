@@ -4,7 +4,6 @@ const app = express();
 app.use(express.json());
 
 app.use("/api/users", require("./routes/usersRoutes"));
-app.use("/api/todos", require("./routes/todosRoutes"));
 
 app.use(require("./middlewares/errorHandlerMiddleware"));
 
